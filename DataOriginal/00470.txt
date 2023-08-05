@@ -1,0 +1,49 @@
+TITLE: Jigsaw Ransomware + Source Code | Nemesis Market
+TEXT:
+Jigsaw Ransomware + Source Code | Nemesis Market     
+  
+Fraud  » Other
+Jigsaw Ransomware + Source Code
+Aceventura
+Rating: 4.6 out of 5
+Reviews: 136
+Sales: 538
+5.99 USD
+Posted 6 months ago
+Report
+  * Description
+  * Reviews
+ATTENTION!  
+I RECOMMEND YOU TO RUN THIS SOFTWARE ON VIRTUAL PC!!!  
+  
+Jigsaw Ransomware message informs victims of the encryption and demands money
+in Bitcoins for decryption.  
+  
+Once the ransomware is executed, the user is greeted by an image of Billy, and
+the ransom note.  
+  
+The message comes in two languages; English or Portuguese. The note introduces
+the idea of exponential growth, and applies it on the user’s file and the
+ransom amount. Recent crypto-ransomware families have ransom amounts that grow
+as time passes, but not with the same increments as JIGSAW. To make matters
+worse, it deletes a larger amount of files with every hour while the amount to
+be paid also increases.  
+  
+JIGSAW deletes files and increases the ransom amount per hour. And with the
+exponential increase of files being permanently deleted, users may be
+pressured into paying the ransom so they may either save the remaining files,
+or avoid paying a larger ransom. The least amount the user can pay is
+US$20-150 .  
+  
+JIGSAW is the first crypto-ransomware with a routine that creates a copy of
+all the user’s files, encrypts the copies into .fun files, and deletes the
+original. Some of its variants, however, changed the file extensions into
+.KKK, .BTC, and .GWS files. It encrypts more than 60 file types
+Refund policy
+Please contact me before you open a dispute. I provide 100% refund or
+replacement if item is not working properly or there is a problem with the
+item. If the problem is not resolved we issue a full refund.
+__ Sort comments by Top New
+__ __
+doublewhammy 1 2 months ago
+deleted at 2022-11-01 12:54:17 UTC

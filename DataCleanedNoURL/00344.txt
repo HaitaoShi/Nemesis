@@ -1,0 +1,101 @@
+TITLE: Cerberus V4 Android Botnet + Source Included | Nemesis Market
+TEXT:
+Cerberus V4 Android Botnet + Source Included | Nemesis Market     
+  
+Fraud  » Other
+Cerberus V4 Android Botnet + Source Included
+Aceventura
+Rating: 4.6 out of 5
+Reviews: 136
+Sales: 538
+1.99 USD
+Posted 6 months ago
+Report
+  * Description
+  * Reviews
+Enjoy our latest dump of Cerberus v2.  
+  
+Sending SMS  
+2FA grabber  
+Interception of SMS  
+Covert SMS interception  
+Lock your device  
+Mute the sound  
+Keylogger (messengers, watz app, tele-gram-secret, banks, etc., except for
+browsers!)  
+Executing USSD commands  
+Call forwarding  
+Bank fake page opening  
+Launch any installed application  
+Bank push notification (Automatic push - determines which established bank)  
+Open url in browser  
+Get all installed apps  
+Retrieve all contacts from their phone book  
+Retrieve all saved SMS  
+Removing any application  
+Bot self-destruction  
+Automatic confirmation of rights and permissions  
+The bot can have several spare urls to connect to the server  
+Injections (html + js + css, download to the device and run from disk, poor
+connection or lack of Internet will not affect the operation of injections)  
+Card grabber  
+Mail Grabber  
+Automatic inclusion of injections after the time specified in the admin panel  
+Automatic shutdown of Google Play Protect + shutdown after the time specified
+in the admin panel  
+Anti-emulator (Bot starts working after the device is active)  
+  
+  
+  
+  
+  
+  
+Modularity  
+Bot application size from 125 to 180 KB (Crypt about 1 MB)  
+Works on Android versions 5 and above  
+Covert SMS interception works from version 5 and higher  
+Injectors work on all current versions of Android 5 - 10+  
+Data between the server and the bot is encrypted using the RC4 + base64
+algorithm with a random key  
+Blocking bot deletion  
+Blocking disabling admin rights  
+Blocking Disable Accessibility Service  
+May have several spare domains for submission  
+Multilanguage  
+  
+Unique bot identifier  
+Android version  
+Build Marking  
+Country + language which is set in the device settings  
+Last knock  
+Screen status (on / off)  
+Google Play Protect status  
+Accessibility Service state  
+Administrator Rights Status  
+Main module receive status  
+Status of hidden SMS interception  
+Availability of bank logs, cards and mails!  
+List of established banks  
+Device IP  
+Date of device infections  
+Device model  
+Operator  
+Battery state of charge  
+Holder's cell number  
+Phone activity (Determine the presence of an emulator)  
+Bot working hours!  
+  
+Live admin panel  
+General and individual tasks  
+Filtering the bot table  
+Adding your own injections using a user-friendly interface  
+Loading injections in HTML format  
+Statistics: Online, Offline, Logs  
+Storing application lists and phone contacts in the database  
+Separate logs of banks, cards and mails  
+The panel is located in the TOR network on our servers  
+Builder
+Refund policy
+Please contact me before you open a dispute. I provide 100% refund or
+replacement if item is not working properly or there is a problem with the
+item. If the problem is not resolved we issue a full refund.

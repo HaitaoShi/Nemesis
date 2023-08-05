@@ -1,0 +1,79 @@
+TITLE: CryptoLocker + Source Code | Nemesis Market
+TEXT:
+CryptoLocker + Source Code | Nemesis Market     
+  Fraud  » Other
+CryptoLocker + Source Code
+Aceventura
+Rating: 4.6 out of 5
+Reviews: 136
+Sales: 538
+5.99 USD
+Posted 6 months ago
+Report
+  * Description
+  * Reviews
+ATTENTION!  
+I RECOMMEND YOU TO RUN THIS SOFTWARE ON VIRTUAL PC!!!  
+  
+CryptoLocker is by now a well known piece of malware that can be especially
+damaging for any data-driven organization. Once the code has been executed, it
+encrypts files on desktops and network shares and “holds them for ransom”,
+prompting any user that tries to open the file to pay a fee to decrypt them.
+For this reason, CryptoLocker and its variants have come to be known as
+“ransomware.”  
+  
+Malware like CryptoLocker can enter a protected network through many vectors,
+including email, file sharing sites, and downloads. New variants have
+successfully eluded anti-virus and firewall technologies, and it’s reasonable
+to expect that more will continue to emerge that are able to bypass
+preventative measures.  
+  
+On execution, CryptoLocker begins to scan mapped network drives that the host
+is connected to for folders and documents, and renames and encrypts those that
+it has permission to modify, as determined by the credentials of the user who
+executes the code.  
+  
+CryptoLocker uses an RSA 2048-bit key to encrypt the files, and renames the
+files by appending an extension, such as, .encrypted or .cryptolocker or .7
+random characters, depending on the variant. Finally, the malware creates a
+file in each affected directory linking to a web page with decryption
+instructions that require the user to make a payment (e.g. via bitcoin).
+Instruction file names are typically DECRYPT_INSTRUCTION.txt or
+DECRYPT_INSTRUCTIONS.html.  
+  
+  
+  
+___Supported Extension___  
+  
+.odt , .ods , .odp , .odm , .odc , .odb , .doc , .docx , .docm , .wps , .xls ,
+.xlsx , .xlsm , .xlsb , .xlk , .ppt , .pptx , .pptm , .mdb , .accdb , .pst ,
+.dwg , .xf , .dxg , .wpd , .rtf , .wb2 , .mdf , .dbf , .psd , .pdd , .pdf ,
+.eps , .ai , .indd , .cdr , .jpg , .jpe , .dng , .3fr , .arw , .srf , .sr2 ,
+.bay , .crw , .cr2 , .dcr , .kdc , .erf , .mef , .mrwref , .nrw , .orf , .raf
+, .raw , .rwl , .rw2 , .r3d , .ptx , .pef , .srw , .x3f , .der , .cer , .crt ,
+.pem , .pfx , .p12 , .p7b , .p7c , .c , .cpp , .txt , .jpeg , .png , .gif ,
+.mp3 , .html , .css , .js , .sql , .mp4 , .flv , .m3u , .py , .desc , .con ,
+.htm , .bin , .wotreplay , .unity3d , .big , .pak , .rgss3a , .epk , .bik ,
+.slm , .lbf , .sav , .lng , .ttarch2 , .mpq , .re4 , .apk , .bsa , .cab , .ltx
+, .forge , .asset , .litemod , .iwi , .das , .upk , .bar , .hkx , .rofl ,
+.DayZProfile , .db0 , .mpqge , .vfs0 , .mcmeta , .m2 , .lrf , .vpp_pc , .ff ,
+.cfr , .snx , .lvl , .arch00 , .ntl , .fsh , .w3x , .rim ,psk , .tor , .vpk ,
+.iwd , .kf , .mlx , .fpk , .zip , .vtf , .001 , .esm , .blob , .dmp , .layout
+, .menu , .ncf , .sid , .sis , .ztmp , .vdf , .mcgame , .fos , .sb , .im ,
+.wmo , .itm , .map , .wmo , .sb , .svg , .cas , .gho , .iso , .rar , .syncdb ,
+.mdbackup , .hkdb , .hplg , .hvpl , .icxs , .itdb , .itl , .mddata , .sidd ,
+.sidn , .bkf , .qic , .bkp , .bc7 , .bc6 , .pkpass , .tax , .gdb , .qdf , .t12
+, .t13 , .ibank , .sum , .sie , .sc2save , .d3dbsp , .wmv , .avi , .wma , .m4a
+, .7z , .torrent , .csv , .cs , .jar , .java , .class
+Refund policy
+Please contact me before you open a dispute. I provide 100% refund or
+replacement if item is not working properly or there is a problem with the
+item. If the problem is not resolved we issue a full refund.
+__ Sort comments by Top New
+__ __
+fregnani8097 1 1 week ago
+hello there is the guide how to set up your wallet address?
+I
+__ __
+Izuopenu 1 5 months ago
+Bro how is work

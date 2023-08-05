@@ -1,0 +1,49 @@
+TITLE: Creating a 100% FUD crypter | Nemesis Market
+TEXT:
+Creating a 100% FUD crypter | Nemesis Market     
+  
+Other  » Guides and Tutorials
+Creating a 100% FUD crypter
+HarleyQuinn
+Rating: 5 out of 5
+Reviews: 971
+Sales: 9853
+2.99 USD
+Posted 1 year ago
+Report
+  * Description
+  * Reviews
+Creating a 100% FUD crypter  
+  
+IMPORTANT! -100% Guarantee! if the method/software is not working anymore, you
+can choose 5 items from my shop!  
+IMPORTANT! -Instant Delivery!  
+IMPORTANT! -Request your bonus after positive feedback!  
+  
+  
+Content:  
+What is a Crypter?  
+What's the difference between a Crypter and a Packer?  
+What's the difference between a Runtime and Scantime Crypter?  
+How do i know which antiviruses detect my file?  
+What is EOF and what is it used for?  
+What is a USG?  
+What is a File Binder?  
+What are "Antis" on Crypters?  
+Types and Forms of Crypters  
+The Antivirus vs Crypter Concept  
+What can you do about this?  
+What do AntiViruses look for in a file?  
+Programming and Vb6 Fundamentals  
+Basic Vb6 Outline for Creating a Crypter  
+vb6 and undetection - what to do and what not to do  
+Changing Assembly information  
+The Antivirus Signatures concept  
+Broad Signatures  
+Finding and pinpointing Whats causing detection  
+The Universal Undetection Process  
+Adding junk code  
+String Manipluation  
+Add or change icon  
+Tools and automation  
+What you will learn from Undetecting Crypters

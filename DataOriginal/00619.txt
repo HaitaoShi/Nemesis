@@ -1,0 +1,58 @@
+TITLE: NjRAT Final Edition | Nemesis Market
+TEXT:
+NjRAT Final Edition | Nemesis Market     
+  
+Hacking  » Malware/Botnets
+NjRAT Final Edition
+TheDangerousTomato
+Rating: 5 out of 5
+Reviews: 218
+Sales: 850
+3.99 USD
+Posted 11 months ago and last time edited at 2022-03-13 23:39:11 UTC
+Report
+  * Description
+  * Reviews
+⚠️ WARNING! ALL ITEMS ARE STRICTLY FOR EDUCATIONAL PURPOSES ONLY ;) AT YOUR
+OWN RISK! INSTANT DELIVERY! ⚠️  
+🍅 CARDING 🍅 FRAUD 🍅 EXPLOITS 🍅 LEAKS 🍅 MALWARES 🍅 MEGA AND GIGA PACKS 🍅 PUBLIC
+AND PRIVATE METHODS 🍅 AND OTHER GOODS! 🍅  
+CHECK MY OTHER LISTINGS! WRITE DM IF FIND ANY ISSUE! ENJOY IT!  
+  
+Updated 2020 - Final Version of njRAT! Basic + Lime + Green + Golden + Danger
+Edition! 100% Backdoor Free!  
+  
+Features  
+  
+\- Remote into the victim’s desktop or the active window  
+\- See the victim’s IP, full computer name, full username, OS, install date,
+and country  
+\- Remotely execute a file from disk or URL  
+\- Manipulate files  
+\- Open a remote shell, allowing the attacker to use the command line  
+\- Open a process manager to kill processes  
+\- Manipulate the system registry  
+\- Record the computer’s camera and microphone  
+\- Log keystrokes  
+\- Steal passwords stored in browsers or in other applications  
+\- File Manager  
+\- Process manager  
+\- remote shell  
+\- registry editor  
+\- services  
+\- connection  
+\- run file  
+\- remote desktop  
+\- keylogger  
+\- form grabber  
+\- remote cam  
+\- remote DDOS  
+\- Microphone
+__ Sort comments by Top New
+K
+__ __
+kaloooooo 1 3 weeks ago
+what the malware file format?
+__ __
+TheDangerousTomato 1 V OP 2 weeks ago
+.EXE

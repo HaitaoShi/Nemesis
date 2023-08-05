@@ -1,0 +1,49 @@
+TITLE: VENOM SOFTWARE | v2.3 - $350 RAT - LIFETIME - hVNC | Nemesis Market
+TEXT:
+VENOM SOFTWARE | v2.3 - $350 RAT - LIFETIME - hVNC | Nemesis Market     
+  
+Other  » Guides and Tutorials
+VENOM SOFTWARE | v2.3 - $350 RAT - LIFETIME - hVNC
+HarleyQuinn
+Rating: 5 out of 5
+Reviews: 971
+Sales: 9853
+6.99 USD
+Posted 1 year ago
+Report
+  * Description
+  * Reviews
+VENOM SOFTWARE | v2.3 - $350 RAT - LIFETIME - hVNC  
+  
+IMPORTANT! -100% Guarantee! if the method/software is not working anymore, you
+can choose 5 items from my shop!  
+IMPORTANT! -Instant Delivery!  
+IMPORTANT! -Request your bonus after positive feedback!  
+  
+  
+  
+Item description:  
+Keep in mind, you are downloading a malware client. Heuristic detections
+because of Quasar RAT base.  
+For your safety, run and use on RDP/VPS ONLY!!  
+  
+VENOM SOFTWARE | v2.3 - $350 RAT - LIFETIME - hVNC, HRDP, BTC CLIPPER 2021,
+LOCKER  
+  
+  
+Port forwarding instructions;  
+Step 1)  
+Control Panel > Firewall and Network > Allow an App through Firewall  
+> Select "VenomRemote cracked.exe"  
+  
+Step 2)  
+Control Panel > Windows Defender Firewall > Advanced Settings  
+  
+Step 3)  
+a) Inbound Rules > New Rule > Port > TCP > Specific Port you want  
+B) Inbound Rules > New Rule > Port > UDP > Specific Port you want  
+c) Outbound Rules > New Rule > Port > TCP > Specific Port you want  
+d) Outbound Rules > New Rule > Port > UDP > Specific Port you want  
+  
+Step 4)  
+Build your server with your port and your VPS IP address or DNS.

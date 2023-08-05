@@ -1,0 +1,43 @@
+TITLE: HiddenTear + Source Code | Nemesis Market
+TEXT:
+HiddenTear + Source Code | Nemesis Market     
+  
+Fraud  » Other
+HiddenTear + Source Code
+Aceventura
+Rating: 4.6 out of 5
+Reviews: 136
+Sales: 538
+5.99 USD
+Posted 6 months ago
+Report
+  * Description
+  * Reviews
+ATTENTION!  
+I RECOMMEND YOU TO RUN THIS SOFTWARE ON VIRTUAL PC!!!  
+  
+**Features**  
+* Uses AES algorithm to encrypt files.  
+* Sends encryption key to a server.  
+* Encrypted files can be decrypt in decrypter program with encryption key.  
+* Creates a text file in Desktop with given message.  
+* Small file size (12 KB)  
+  
+  
+This virus encrypts stored data (video, audio, etc.) and renames encrypted
+files using the "random_characters.L0cked" pattern (e.g., "sample.jpg" might
+be renamed to "gd&=AA0fgoi.L0cked"). Following successful encryption,
+HiddenTear opens a pop-up window containing ransom-demand message.  
+  
+HiddenTear's message informs victims of the encryption and demands money in
+Bitcoins for decryption. The ransom payment must be made within 48 hours,
+otherwise the encrypted files will supposedly be deleted. It is currently
+unknown whether HiddenTear uses symmetric or asymmetric cryptography. In any
+case, decryption without a unique key is impossible.  
+  
+The key is stored on a remote server controlled by attacker, who attempt to
+blackmail victims by making ransom demands.
+Refund policy
+Please contact me before you open a dispute. I provide 100% refund or
+replacement if item is not working properly or there is a problem with the
+item. If the problem is not resolved we issue a full refund.

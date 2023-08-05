@@ -1,0 +1,211 @@
+---
+title: "TF_IDF_Nemesis_Market"
+format: 
+  html:
+    code-fold: true
+    code-tools: true
+---
+
+## The concept of [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) is based on [Zipf's Law](https://en.wikipedia.org/wiki/Zipf%27s_law)
+
+## Load Packages and data
+
+```{r}
+#| label: load-packages_data
+#| warning: false
+#| code-fold: true
+
+library(tidyverse)
+library(forcats)
+library(stringr)
+library(tidytext)
+library(igraph)
+library(ggraph)
+library(ggrepel)
+
+data  <-  read_csv("/Users/shihaitao/Documents/DarknetProject/Darknet/complete.csv")
+```
+
+## Several steps to get data ready for analysis
+
+```{r}
+#| label: data_preparation
+#| code-fold: false
+word_only <- data %>% 
+  select("Drug_Type_L", "MainContent") %>% # <1>
+  group_by(Drug_Type_L) %>% # <2>
+  summarise(Type_Content=paste(MainContent,collapse = "")) %>% # <2> 
+  slice(c(-6, -11)) %>% # <3>
+  unnest_tokens(word, Type_Content) %>% # <4>  
+  mutate(word = str_remove_all(word, "\\d+")) %>% # <4> 
+  mutate(word = str_remove_all(word, "mg|g|ml|l")) %>%  # <4> 
+  filter(word != "") %>% # <4> 
+  count(Drug_Type_L, word, sort = TRUE) %>% # <5> 
+  ungroup()
+```
+
+1.  Select the columns "Drug_Type_L" and "MainContent" from the data frame "data"
+2.  Group the data by "Drug_Type_L" and concatenate the "MainContent" strings for each group into a single string
+3.  Remove the 6th and 11th rows from the resulting data frame (NA and Other)
+4.  Split the concatenated strings into individual words and remove all digits, units (mg, g, ml, l) and empty value
+5.  Count the frequency of each word for each group, and sort the results in descending order
+
+## Calculate the TF-IDF score for each word in each group
+
+```{r}
+#| code-fold: false
+word_tf_idf <- word_only %>% 
+  bind_tf_idf(word, Drug_Type_L, n)
+```
+
+## Sort the results by TF-IDF score in descending order and select the top 15 words for each group
+
+```{r}
+#| code-fold: false
+word_top15 <- word_tf_idf %>% 
+  group_by(Drug_Type_L) %>% 
+  arrange(desc(tf_idf)) %>% 
+  top_n(15,tf_idf) %>% 
+  ungroup()
+```
+
+## Preview the top 15 words for each group
+
+```{r}
+#| code-fold: false
+word_top15
+```
+
+## Plot the results
+
+```{r}
+#| fig-width: 12
+#| fig-height: 12
+#| #| code-fold: false
+word_top15 %>% ggplot(aes(tf_idf, fct_reorder(word, tf_idf), fill = Drug_Type_L)) + 
+  geom_col(show.legend = FALSE) + 
+  facet_wrap(~Drug_Type_L, ncol = 3, scales = "free") + 
+  labs(x = "tf-idf", y = NULL) 
+```
+
+# N-grams
+
+I am using a bigram as an example. N can be any number.
+
+```{r}
+content_bigrams <-
+  data %>% 
+  select("Drug_Type_L", "MainContent") %>% 
+  group_by(Drug_Type_L) %>% 
+  summarise(Type_Content=paste(MainContent,collapse = "")) %>% 
+  slice(c(-6,-11)) %>% 
+  unnest_tokens(bigram, Type_Content, token="ngrams", n=2 ) %>%  
+  mutate(bigram = str_remove_all(bigram, "\\d+")) %>% 
+  mutate(bigram = str_remove_all(bigram, "mg|g|ml|l")) %>% 
+  filter(bigram != " ") %>% 
+  count(Drug_Type_L, bigram, sort = TRUE) %>% 
+  ungroup()
+
+```
+
+The tibble of bigrams:
+
+```{r}
+#| code-fold: false
+content_bigrams
+```
+
+## Clean the data that can potentially be used for analysing word connections
+
+Cleaning the data by removing stop words, "", and"."
+
+```{r}
+
+bigrams_separated <- content_bigrams %>%
+  separate(bigram, c("word1", "word2"), sep = " ")
+
+bigrams_filtered <- bigrams_separated %>%
+  filter(!word1 %in% stop_words$word & word1 != "" & word1 != ".") %>%
+  filter(!word2 %in% stop_words$word & word2 != "" & word2 != ".") 
+
+```
+
+So, if we want to know which words are commonly connected to aroma, we can simply add the code like this:
+
+```{r}
+#| code-fold: false
+bigrams_filtered %>% filter(word1 == "aroma" | word2 == "aroma")
+```
+
+## Unit the bigram after cleaning
+
+```{r}
+#| code-fold: false
+bigrams_unite <- bigrams_filtered %>% unite(bigram, word1, word2, sep = " ")
+```
+
+## Plot the tf_idf for bigrams
+
+```{r}
+#| fig-width: 12
+#| fig-height: 12
+#| code-fold: false
+bigrams_unite %>% bind_tf_idf(bigram, Drug_Type_L, n) %>% 
+  group_by(Drug_Type_L) %>% 
+  arrange(desc(tf_idf)) %>% 
+  top_n(14,tf_idf) %>% 
+  ungroup() %>% 
+  ggplot(aes(tf_idf, fct_reorder(bigram, tf_idf), fill = Drug_Type_L)) + 
+  geom_col(show.legend = FALSE) + 
+  facet_wrap(~Drug_Type_L, ncol = 3, scales = "free") + 
+  labs(x = "tf-idf", y = NULL) 
+```
+
+***Please note: due to the small sample size, it does not work well. However, if we can use this method to analyse the data from Cambridge, it could be useful.***
+
+## The other reason why I think bigrams are very important is that they can provide useful context in sentiment analysis. For example,
+
+```{r}
+#| code-fold: false
+bigrams_separated %>% filter(word1 == "not") %>% count(word1, word2, sort = TRUE)
+```
+
+In sentiment analysis, a sentence with 'not happy' will be defined as positive, which is wrong. Bigrams can help us to know how many points are miscalculated and we can reverse the contribution to the sentiment score. The most common words associated with negation are 'not', 'never', 'no', and 'without'.
+
+# Visualise the bigram occurs more than 20 times ([Markov Chain](https://en.wikipedia.org/wiki/Markov_chain))
+
+```{r}
+#| code-fold: false
+bigram_graph <- bigrams_filtered %>% 
+  select(-Drug_Type_L) %>% 
+  filter(n>20) %>% 
+  graph_from_data_frame()
+bigram_graph
+```
+
+```{r}
+#| fig-width: 12
+#| fig-height: 12
+#| warning: false
+
+a <- grid::arrow(type = "closed", length = unit(.15, "inches"))
+
+ggraph(bigram_graph, layout = "kk") +
+  geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,
+                 arrow = a, end_cap = circle(.05, 'inches')) +
+  geom_node_point(color = "blue", alpha = 0.5, size = 5) +
+  geom_node_text(aes(label = name), repel = TRUE, size = 6) +
+  theme_void()
+```
+
+***PS.***
+
+1.  ***Examining the phi coefficient for pairwise correlation can also be useful, especially when dealing with large datasets.***
+
+2.  ***Useful R packages for NLP : [CRAN Task View for Natural Language Processing](https://cran.r-project.org/web/views/NaturalLanguageProcessing.html)***
+
+***A few of my thoughts:***
+
+1.  ***If data scraping is performed correctly, we can obtain a visual understanding of the evolving popularity of a specific drug in each country by calculating its frequency of occurrence on forums over time.***
+2.  ***If necessary, I can encapsulate some portions of my code into functions, which can be convenient for others to use.***
+3.  ***I am comfortable working with Python if R is not used by our collaborators.***

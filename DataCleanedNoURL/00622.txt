@@ -1,0 +1,57 @@
+TITLE: THC-Hydra 9.3 With Tutorial # Gain Unauthorized Access to a System | Nemesis Market
+TEXT:
+THC-Hydra 9.3 With Tutorial # Gain Unauthorized Access to a System | Nemesis Market     
+  
+Hacking  » Malware/Botnets
+THC-Hydra 9.3 With Tutorial # Gain Unauthorized Access to a System
+Softsis
+Rating: 4.7 out of 5
+Reviews: 26
+Sales: 113
+6.5 USD
+Posted 6 months ago
+Report
+  * Description
+  * Reviews
+thc-hydra 9.3 Shows how easy it would be to gain unauthorized access to a
+system  
+  
+  
+What is hydra ??  
+THC Hydra stands for The hackers choice Hydra.  
+  
+This a hacking tool, it is a very powerful password cracking tool. I think you
+may come across the john the ripper tool, even this tool is used for password
+cracking.  
+  
+The difference between John the ripper and the hacker choice hydra is John the
+ripper works offline and The hackers choice hydra (Hydra) works online.  
+  
+Number one of the biggest security holes are passwords, as every password
+security study shows. This tool is a proof of concept code, to give
+researchers and security consultants the possibility to show how easy it would
+be to gain unauthorized access from remote to a system. There are already
+several login hacker tools available, however, none does either support more
+than one protocol to attack or support parallelized connects. It was tested to
+compile cleanly on Linux, Windows/Cygwin, Solaris, FreeBSD/OpenBSD, QNX
+(Blackberry 10) and MacOS. However the module engine for new services is very
+easy so it won't take a long time until even more services are supported. Via
+the command line options you specify which logins to try, which passwords, if
+SSL should be used, how many parallel tasks to use for attacking, etc.
+PROTOCOL is the protocol you want to use for attacking, e.g. ftp, smtp, http-
+get or many others are available.  
+  
+Features  
+For researchers and security consultants  
+This tool is for legal purposes only  
+It was tested to compile cleanly on Linux, Windows/Cygwin, Solaris,
+FreeBSD/OpenBSD, QNX (Blackberry 10) and MacOS.  
+Currently this tool supports several protocols  
+If you want the ssh module, you have to setup libssh (not libssh2!) on your
+system  
+Supports mobile systems based on Linux, MacOS or QNX  
+  
+you will learn what is thc-hydra and how does it work and also you will learn
+all the commands in the tool.
+Refund policy
+No Refund

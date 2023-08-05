@@ -1,0 +1,57 @@
+TITLE: Blacknet V3 Advanced Multios Botnet | Nemesis Market
+TEXT:
+Blacknet V3 Advanced Multios Botnet | Nemesis Market     
+  
+Other  » Guides and Tutorials
+Blacknet V3 Advanced Multios Botnet
+Aceventura
+Rating: 4.6 out of 5
+Reviews: 136
+Sales: 538
+2 USD
+Posted 11 months ago
+Report
+  * Description
+  * Reviews
+BLACKNET V3 ADVANCED MULTIOS BOTNET DDOS PASS STEALER BTC GRABBER + SOURCE  
+  
+What is BlackNET?  
+BlackNET is a advanced and modern Windows botnet with a nice and secure PHP
+panel built using VB.NET.  
+  
+Features:  
+Upload File  
+DDOS Attack  TCP,UDP,ARME,Slowloris, HTTPGet, POSTHttp, Bandwidth Flood   
+Start DDOS  
+Stop DDOS  
+Open Webpage  
+Visible  
+Hidden  
+Show MessageBox  
+Take Screenshot  
+Steal Firefox Cookies  
+Steal Saved Passwords  
+Keylogger  
+Execute Scripts  
+Computer Operations  
+Restart  
+Shutdown  
+Logout  
+Bitcoint Wallet Stealer  
+Uninstall Client  
+Move Client  
+Blacklist Client  
+Update Client  
+Close Client  
+Requirements:  
+PHP >= 5.6  
+NET Framework  
+Stub >= 2.0  
+Builder >= 4.0  
+How to setup?  
+ZIP or RAR the panel files and upload them to your web directory.  
+Create a database.  
+Enter the database in: classes/database.php  
+Give all files permission 777.  
+Run the install.php script.  
+You're done.

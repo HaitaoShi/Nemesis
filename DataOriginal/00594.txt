@@ -1,0 +1,33 @@
+TITLE: instagram 50 Million records 2020 Records | Nemesis Market
+TEXT:
+instagram 50 Million records 2020 Records | Nemesis Market     
+  
+Fraud  » Dumps
+instagram 50 Million records 2020 Records
+topvendor
+Rating: 0 out of 5
+Reviews: 0
+Sales: 0
+499 USD
+Shipping from Unknown Location to World Wide
+Shipping methods:  ― 1 day ― 0 USD
+Posted 1 month ago
+Report
+  * Description
+  * Reviews
+First file: Around 50M Lines of scraped instagram account data  
+FIELDS:  
+id, categoryid, idInsta, nom, nbFollowers, nbFollowings, nbPosts, biography,
+lastUpdate, pro, private, city, langue, genre, scriptGenrePasse, localisation,
+identifiant, usedScript4, grandevilleid, age  
+  
+  
+Second file: Around 400k lines of more in depth data about accounts (Most
+lines include an email address)  
+FIELDS:  
+  
+Check here : skidbin.net/raw?t=7nIoYrap
+Refund policy
+This is a Digital Product  
+Please be informed that we do not do a refund  
+*Unless my link is not working

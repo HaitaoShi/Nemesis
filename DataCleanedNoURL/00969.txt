@@ -1,0 +1,96 @@
+TITLE: EM RAT Reborn | Nemesis Market
+TEXT:
+EM RAT Reborn | Nemesis Market     
+  Hacking  » Scripts/Applications
+EM RAT Reborn
+Blueskies1337
+Rating: 5 out of 5
+Reviews: 224
+Sales: 384
+25 USD
+Not available
+♡
+Posted 7 months ago
+Report
+  * Description
+  * Reviews
+EM RAT ( Eagle Monitor Remote Access Transmission ) is a very Fast,
+lightweight & easily customizable remote access tool written in C#.  
+Consider this as an upgrade of HorusEyesRat which was written in VB.NET.  
+  
+From the original Eagle Monitor - This reborn version has been re-coded,
+reworked and scripted.  
+What has been changed? Well to start off...  
+  
+Whole UI (data grid view instead of list view, dark theme...)  
+Packets system or recorded data log structure.  
+All plugins  
+Client and Server side and packets handling  
+Native Imports  
+New Settings to play around with  
+A self hosted and intergrated stub builder  
+Automation tasks & Mass tasks  
+Memory execution  
+Asynchronous operations  
+Use of threads (when wanted or needed)  
+Wifi recovery removed  
+  
+  
+What's new features that were added in that you wont find in the original
+software ?  
+Log reporting system  
+Keylogger & Clipboard monitor (offline and realtime)  
+Network information (IPV4)  
+Client can now be written in BOTH in VB and C#  
+An installer for a more professional deployment & delivery  
+Notification sounds  
+  
+  
+  
+So what can this thing do all together?  
+Current features  
+  
+Clients written in C# and VB (32 and 64 bit)  
+Passwords recovery (automatically saved)  
+History recovery (automatically saved)  
+Blur screenlocker  
+Remote camera viewer (+ save pictures) with Remote desktop viewer (+ save
+pictures)  
+Process manager as well as the control to Kill process (native techniques)  
+Resume or Suspend process  
+Resume process  
+(shellcode) Process injection (NtWriteVirtualMemory + NtCreateThreadEx)  
+(shellcode) Process injection (NtMapViewOfSection + NtCreateThreadEx)  
+Shutdown/ Reboot / Suspend / Hibernate system  
+Log out user  
+BSOD  
+Lock workstation  
+Realtime and Offline keylogger (automatically saved)  
+(current client) Managed & Unmanaged pe execution  
+(current client) Managed & Unmanaged dll execution  
+(current client) Shellcode execution  
+Control the host Audio by turning it up or down  
+Hide + show taskbar and/or desktop icons  
+Set wallpaper  
+A Complete File Manager  
+Delete / Download / Rename files  
+Shortcuts (download, desktop and documents paths)  
+Logs ((automatically saved))
+Refund policy
+N/A
+__ Sort comments by Top New
+M
+__ __
+minaise123 1 3 months ago
+HI,  
+  
+Can you tell me about different ways I can insert the RAT..USB? AUTORUN? of
+cours email(but intead of .exe can i use, word, pdf what kind of extensions
+and what do they have to do so it will be invisible to they and it will start
+working..)  
+  
+Thanks and will be educating myself about RAT-s from now on.
+K
+__ __
+Kapitano228 1 5 months ago
+Is it possible to remotely access an Iphone using this software?

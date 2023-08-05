@@ -1,0 +1,147 @@
+TITLE: PEGASUS RAT FULL VERSION # EXTRA AND UNIQUE FEATURES | Nemesis Market
+TEXT:
+PEGASUS RAT FULL VERSION # EXTRA AND UNIQUE FEATURES | Nemesis Market     
+  
+Hacking  » Malware/Botnets
+PEGASUS RAT FULL VERSION # EXTRA AND UNIQUE FEATURES
+Softsis
+Rating: 4.7 out of 5
+Reviews: 26
+Sales: 113
+12.5 USD
+Posted 4 months ago and last time edited at 2022-09-09 08:13:36 UTC
+Report
+  * Description
+  * Reviews
+ITS THE BEST RAT AVAILABE RIGHT NOW BECAUSE ITS A MIX OF ASYNCRAT, QUASAR RAT,
+AND DCRAT, VENOM RAT, ALL IN A SINGLE RAT, WITH EXTRA AND UNIQUE FEATURES!
+TAKE A LOOK AT IT.  
+  
+FULL FEATURES LIST:  
+  
+Process Protection  
+TaskMgrDog  
+WatchDog  
+Rootkit (Ring 3)Hidden Files  
+Hidden Directory  
+Hidden Scheduled Task  
+Hidden Process  
+Hidden Registry keys & values  
+Hidden Services  
+Hidden TCP & UDP connections  
+Remote HVNCHVNC Clone Profile  
+Hidden Desktop  
+Hidden Browsers:  
+Hidden Chrome  
+Hidden Firefox  
+Hidden Edge  
+Hidden Brave  
+Hidden Internet Explorer  
+Hidden Comodo  
+Hidden PaleMoon  
+Hidden Waterfox  
+Hidden Opera  
+Hidden Opera Neon  
+Hidden Explorer  
+Remote Hidden RDPHrdp Browsers Supported  
+Hrdp Copy Profile  
+Hrdp Browsers:  
+Hrdp Chrome  
+Hrdp Firefox  
+Hrdp Edge  
+Hrdp Brave  
+Hrdp Comodo  
+Hrdp PaleMoon  
+Hrdp Waterfox  
+Hrdp Opera  
+Hrdp Opera Neon  
+Hrdp Wallets Supported  
+Hrdp ArmoryQt  
+Hrdp Coinomi  
+Hrdp Atomic  
+Hrdp Exodus  
+Hrdp Electrum  
+Hrdp Jaxx  
+Remote FunMonitor on/off  
+Open/close CD  
+Show/Hide taskbar  
+Show/Hide Start Button  
+Show/Hide Explorer  
+Show/Hide Clock  
+Show/Hide Tray  
+Show/Hide Mouse  
+Enable/Disable Task Manager  
+Enable/Disable Regedit  
+Disable UAC  
+Remote RecoveryAll Google chrome based browsers recovery  
+All Mozilla firefox based browsers recovery  
+Internet explorer Recovery Keylloger  
+Recover and Send All logs to discord WebHook  
+Builder FeaturesObfuscate Stub  
+RunPe  
+Change client name  
+Enable install  
+Anti kill  
+Disable windows defender  
+Hide file  
+Hide folder  
+Enable start up/persistence  
+Change startup registry name  
+Mutex  
+IP/DNS/No ip  
+Multiport Support  
+Encrypted connection  
+Change reconnect time  
+Change assembly clone/random  
+Change icon  
+Remote SystemRemote shell  
+Remote desktop  
+Remote camera  
+Registry Editor  
+File management  
+Process management  
+Network Connections  
+Remote recording  
+Process notification  
+Send file  
+Inject file  
+Download and Execute  
+Execute .reg  
+Execute .bat  
+Execute .vbs  
+Send notification  
+Chat Room  
+Open website  
+Keylog Viewer  
+Disable Windows Defender  
+Disable UAC  
+Password recovery  
+Bypass Uac  
+Get computer information  
+Task on connection  
+Mutex  
+Process protection  
+Install with schtasks  
+TaskMgrDog  
+WatchDog  
+OtherPastebin Uploader  
+Spam Tools
+Refund policy
+No Refund
+__ Sort comments by Top New
+C
+__ __
+camymcuk 1 1 month ago
+Can this be deployed to the latest versions of IOS and Android devices when
+fully set up? Might be a stupid question but a simple yes or no will suffice.
+A
+__ __
+asdghdfadg224 1 3 months ago
+Is it Fud ? and whats the extension is it .exe or you have exploit
+8
+__ __
+8675309 1 3 months ago
+Hello. Can you confirm that this is a working version and no back doors or
+anything added to it? This is the original source code?  
+  
+Thank you.

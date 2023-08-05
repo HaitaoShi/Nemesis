@@ -1,0 +1,46 @@
+TITLE: Android Locker + Source Code | Nemesis Market
+TEXT:
+Android Locker + Source Code | Nemesis Market     
+  
+Fraud  » Other
+Android Locker + Source Code
+Aceventura
+Rating: 4.6 out of 5
+Reviews: 136
+Sales: 538
+5.99 USD
+Posted 6 months ago
+Report
+  * Description
+  * Reviews
+It is the first ever ransomware that misusing Android accessibility services,
+it can change device’s PIN to prevent users from accessing the device and also
+it encrypts all the files in the device and put a ransom note.  
+  
+DoubleLocker distributed through fake flash popup via the compromised
+websites. Once the application triggered it launches a malware access service
+dubbed as Google Play Service, then it obtains accessibility permissions.  
+  
+With the accessibility permissions, it obtains admin rights and the set’s up a
+default home application without user’s knowledge.  
+  
+Setting itself as a default home app – a launcher – is a trick that improves
+the malware’s persistence. Whenever the user clicks on the home button, the
+ransomware gets activated and the device gets locked again. Thanks to using
+the accessibility service, the user doesn’t know that they launch malware by
+hitting Home  
+  
+Once the ransomware is executed it first change the device PIN to a random one
+to block user access and then it encrypts the file with AES algorithm and
+appends extension.  
+  
+The encryption is implemented properly, which means that, unfortunately, there
+is no way to recover the files without receiving the encryption key from the
+attackers.  
+  
+Locker demands ransom BTC payment and it should be paid within 24hours
+otherwise all files will be deleted
+Refund policy
+Please contact me before you open a dispute. I provide 100% refund or
+replacement if item is not working properly or there is a problem with the
+item. If the problem is not resolved we issue a full refund.

@@ -1,0 +1,113 @@
+TITLE: WarZone Rat CRACKED 🧯 FINALLY | Nemesis Market
+TEXT:
+WarZone Rat CRACKED 🧯 FINALLY | Nemesis Market     
+  
+Hacking  » Malware/Botnets
+WarZone Rat CRACKED 🧯 FINALLY
+kudz3
+Rating: 4.5 out of 5
+Reviews: 58
+Sales: 202
+25 USD
+Posted 4 weeks ago and last time edited at 2022-12-20 08:12:39 UTC
+Report
+  * Description
+  * Reviews
+🔥New version has HIDDEN BROWSER AKA HVNC. Means you can open victim's browser
+remotely and do anything without them noticing.🔥  
+  
+Full Specs:  
+  
+✨Native, independent stub  
+Stub of this RAT has been written in C++ which makes it independent from .NET
+Framework.  
+  
+✨Cookies Recovery  
+Recover cookies from popular Chrome and Firefox in JSON format.  
+  
+✨Remote Desktop  
+Control computers remotely at 60 FPS!  
+Use mouse and keyboard to control remote computers.  
+Remote Desktop feature is realized with a specially crafted VNC module.  
+  
+✨Hidden Remote Desktop - HRDP  
+Control remote computers invisibly!  
+HRDP module allows you to login to the remote machine without anyone knowing.  
+You can open the browser even if it is currently opened on the main account.  
+  
+✨Privilege Escalation - UAC Bypass  
+Elevate to Administrator with just 1 click.  
+This feature has been tested and proven to work on Windows operating systems
+from Windows 7 to even the latest Windows 10.  
+  
+  
+  
+✨Remote WebCam  
+If the remote computer has a webcam connected, you can view the stream live in
+the Remote WebCam module.  
+  
+✨Password Recovery  
+Recover password from popular browsers and email clients in seconds!  
+Grabs passwords from the following browsers:  
+Chrome, Firefox, Internet Explorer, Edge, Epic, UC, QQ, Opera, Blisk, SRWare
+Iron, Brave, Vivaldi, Comodo Dragon, Torch, Slimjet, Cent  
+Outlook, Thunderbird, Foxmail  
+Enable Automatic Password Recovery to receive passwords without touching any
+buttons!  
+  
+✨File Manager  
+Upload and Download files at high speed. You can also execute and delete
+files.  
+  
+✨Download & Execute  
+Execute files on remote computers.  
+  
+✨Live Keylogger  
+You can view the keys pressed on remote computer in real time.  
+  
+✨Offline Keylogger  
+Enable Offline Keylogger to save keylogs all the time.  
+  
+✨Remote Shell  
+Send commands to the remote computer's CMD.  
+  
+✨Process Manager  
+View and kill processes using Process Manager.  
+  
+✨Reverse Proxy  
+Browse the Internet with the remote computer's IP address!  
+  
+✨Automatic Tasks  
+Automatic Tasks are executed when client connects to your WARZONE Server.  
+\- Automatic Password Recovery  
+\- Automatic HRDP installation and Exposure to WAN  
+\- Automatic Download and Execute.  
+  
+✨Mass Execute  
+Download and execute your file on all the connected clients with one click.  
+  
+✨Smart Updater  
+You use Smart Updater to update your WARZONE RAT file on all the clients AND
+new clients until you disable the Smart Updater.  
+Smart Updater is going to uninstall the old file only if the new file has been
+executed successfully AND if  
+the new file has successfully connected to your WARZONE Server.  
+  
+✨HRDP WAN Direct Connection  
+Expose HRDP to the Internet, WAN.  
+You can connect directly to the public IP without reverse proxy.  
+  
+✨Persistence  
+Persistence protects the process and the file.  
+When process or file gets deleted, they will be recovered.  
+  
+✨Windows Defender Bypass  
+WARZONE Client will add itself to exclusions once it executes.  
+This will prevent Windows Defender from scanning your WARZONE Client.  
+  
+  
+Educational purposes only.
+Refund policy
+WILL NOT help, replace or refund if you dispute without DMing me.  
+  
+My DM is always open for such cases, always willing and open for help.

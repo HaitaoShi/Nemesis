@@ -1,0 +1,45 @@
+TITLE: The Complete Cyber Security Course, Hacking Exposed | Nemesis Market
+TEXT:
+The Complete Cyber Security Course, Hacking Exposed | Nemesis Market     
+  
+Fraud  » Other
+The Complete Cyber Security Course, Hacking Exposed
+HakunaMatataa
+Rating: 4 out of 5
+Reviews: 60
+Sales: 302
+3 USD
+Posted 11 months ago
+Report
+  * Description
+  * Reviews
+Become a Cyber Security Specialist – Go from a beginner to advanced in this
+easy to follow expert course.  
+  
+Covering all major platforms – Windows 7, Windows 8, Windows 10, MacOS and
+Linux.  
+  
+This course covers the fundamental building blocks of your required skill set
+– You will understand the threat and vulnerability landscape through threat
+modeling and risk assessments.  
+  
+We explore the Darknet and mindset of the cyber criminal. Covering malware,
+exploit kits, phishing, zero-day vulnerabilities and much more.  
+  
+You will learn about the global tracking and hacking infrastructures that
+nation states run. Covering the NSA, FBI, CIA, GCHQ, China’s MSS and other
+intelligence agencies capabilities.  
+  
+You will understand the foundations of operating system security and privacy
+functionality. A close look at the new Windows 10 privacy issues and how to
+best mitigate them.  
+  
+There is a complete easy to follow crash course on encryption, how encryption
+can be bypassed and what you can do to mitigate the risks.  
+  
+Master defenses against phishing, SMShing, vishing, identity theft, scam, cons
+and other social engineering threats.  
+  
+Finally we cover the extremely important, but underused security control of
+isolation and compartmentalization. Covering sandboxes, application isolation,
+virtual machines, Whonix and Qubes OS.

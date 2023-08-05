@@ -1,0 +1,133 @@
+---
+title: "Topic Modeling through Latent Dirichlet Allocation"
+format: 
+  html:
+    code-fold: true
+    code-tools: true
+---
+
+## Load Packages and data
+
+```{r}
+#| label: load-packages_data
+#| warning: false
+#| code-fold: true
+
+library(tidyverse)
+library(forcats)
+library(stringr)
+library(tidytext)
+library(igraph)
+library(ggraph)
+library(ggrepel)
+library(topicmodels)
+
+data  <-  read_csv("/Users/shihaitao/Documents/DarknetProject/Nemesis/complete.csv")
+```
+
+## Several steps to get data ready for analysis
+
+```{r}
+#| label: data_preparation
+#| code-fold: false
+word_only <- data %>% 
+  select("Drug_Type_L", "MainContent") %>% # <1>
+  group_by(Drug_Type_L) %>% # <2>
+  summarise(Type_Content=paste(MainContent,collapse = "")) %>% # <2> 
+  slice(c(-6, -11)) %>% # <3>
+  unnest_tokens(word, Type_Content) %>% # <4>  
+  mutate(word = str_remove_all(word, "\\d+")) %>% # <4> 
+  mutate(word = str_remove_all(word, "mg|g|ml|l")) %>%  # <4> 
+  filter(word != "") %>% # <4> 
+  anti_join(stop_words, by = "word")  %>% # <4>
+  count(Drug_Type_L, word, sort = TRUE) %>% # <5> 
+  ungroup()
+```
+
+1.  Select the columns "Drug_Type_L" and "MainContent" from the data frame "data"
+2.  Group the data by "Drug_Type_L" and concatenate the "MainContent" strings for each group into a single string
+3.  Remove the 6th and 11th rows from the resulting data frame (NA and Other)
+4.  Split the concatenated strings into individual words and remove all digits, units (mg, g, ml, l), empty value and stop words.
+5.  Count the frequency of each word for each group, and sort the results in descending order
+
+## Cast a one-token-per-row table into a DocumentTermMatrix with tidytext's cast_dtm()
+
+```{r}
+#| code-fold: FALSE
+Drug_dtm <- word_only %>%
+  cast_dtm(Drug_Type_L, word, n)
+
+Drug_dtm
+```
+
+As we have already know that we have 9 types of drugs here. So, I set k equals to 9. If we don't know, then we may set k to different values to test.
+
+```{r}
+#| code-fold: FALSE
+Drug_lda <- LDA(Drug_dtm, k = 9, control = list(seed = 100))
+Drug_lda
+```
+
+Examining ***per-topic-per-word probabilities*** and find the top 10 terms within each topic.
+
+```{r chapter_topics}
+#| code-fold: FALSE
+Predict_topics <- tidy(Drug_lda, matrix = "beta")
+Predict_topics
+top_terms <- Predict_topics %>%
+  group_by(topic) %>%
+  slice_max(beta, n = 10) %>% 
+  ungroup() %>%
+  arrange(topic, -beta)
+top_terms
+```
+
+## Visualization
+
+```{r}
+top_terms %>%
+  mutate(term = reorder_within(term, beta, topic)) %>%
+  ggplot(aes(beta, term, fill = factor(topic))) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ topic, scales = "free") +
+  scale_y_reordered()
+```
+
+Examining the ***per-document-per-topic probabilities*** to predict which topics are associated with each document.
+
+```{r}
+#| code-fold: false
+Drug_gamma <- tidy(Drug_lda, matrix = "gamma")
+Drug_gamma
+```
+
+```{r}
+#| code-fold: false
+Drug_gamma <- Drug_gamma %>% group_by(topic) %>% slice_max(gamma)
+```
+
+Due to the limited sample size, three topics have been categorized as "Cannabis". It is possible that Ecstasy and Opioids may not exhibit statistically significant differences. Nevertheless, we can include the predicted drug types in the plot.
+```{r}
+#| fig-width: 12
+#| fig-height: 12
+# define the plot_labels vector
+plot_labels <- Drug_gamma$document 
+
+# modify the top_terms data frame to include plot labels
+top_terms <- top_terms %>%
+  mutate(plot_label = plot_labels[topic])
+
+# plot the data with the new plot labels
+top_terms %>%
+  mutate(term = reorder_within(term, beta, topic)) %>%
+  ggplot(aes(beta, term, fill = factor(topic))) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ plot_label, scales = "free") +
+  scale_y_reordered()
+```
+
+We can compare this code's output to the plot that describes the word frequency of each drug type created earlier in reality (please refer to TF.IDF.html). Three instances of "Cannabis" are displayed in different colors. Nonetheless, considering the small sample size, the model exhibits a reasonable level of performance.  
+
+## Please note: Topic modeling is a technique used in natural language processing (NLP) and machine learning to uncover the main themes or topics present in a collection of documents. In other words, the aim is to identify the underlying topics without prior knowledge of the specific drug types. I wrote this script to test the effectiveness of LDA on a small sample for fun. I will carry out the analysis once we know the methods that other taems will employ.
+
+

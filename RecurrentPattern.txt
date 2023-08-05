@@ -1,0 +1,142 @@
+ * Market 
+  * Forum 
+  *   * Sign in 
+  * Create an Account 
+
+  * Drugs 
+    * Cannabis 2531
+      * Buds and Flowers 1858
+      * Concentrates 153
+      * Cartridges 35
+      * Pre-rolls 2
+      * Edibles 181
+      * Hash 178
+      * Seeds 17
+      * Shake 47
+      * Synthetics 12
+      * Syrup 4
+      * Other 44
+    * Stimulants 1251
+      * Cocaine 650
+      * Crack 28
+      * Methamphetamine (Meth) 123
+      * Amphetamine/Speed 144
+      * Adderall 153
+      * Mephedrone 34
+      * Methylphenidate 20
+      * Lidocaine 4
+      * Khat 4
+      * Sexual Stimulants 43
+      * Other 48
+    * Opioids 498
+      * Heroin 115
+      * Oxycodone 176
+      * Buprenorphine/Naloxone 14
+      * Opium 22
+      * Morphine 13
+      * Codeine 9
+      * Codeine Syrups/Solutions 1
+      * Dihydrocodeine 5
+      * Hydrocodone 29
+      * Hydromorphone 8
+      * Tramadol 38
+      * Methadone 16
+      * Fentanyl 8
+      * Other 44
+    * Ecstasy 660
+      * XTC Pills 446
+      * MDMA 195
+      * MDA 7
+      * Methylone 6
+      * Other 6
+    * Dissociatives 285
+      * Ketamine 233
+      * GHB/GBL 36
+      * Methoxetamine (MXE) 7
+      * PCP 4
+      * Other 5
+    * Psychedelics 636
+      * LSD 338
+      * Shrooms 132
+      * 2C-B 57
+      * DMT 78
+      * Mescaline 3
+      * Salvia Divinorum 2
+      * Other 26
+    * Benzodiazepine (Benzos) 895
+      * Alprazolam (Xanax) 156
+      * Diazepam (Valium) 48
+      * Zopiclone 15
+      * Lorazepam 21
+      * Pills 597
+      * Powder 16
+      * RCs 23
+      * Other 19
+    * Prescription Drugs 241
+    * Steroids 149
+    * Tobacco 1
+    * Weight Loss 6
+    * Paraphernalia 2
+    * Other 29
+  * Fraud 
+    * Cards/CVVs/Fullz 3117
+    * SSN/DOB/DL/PII 439
+    * Bank Logins 169
+    * Logins/Hacked Accounts 640
+    * Carding 238
+    * Carded Goods 5
+    * Carded Accounts 3
+    * Drop Addresses 5
+    * Bank Drops 294
+    * Other Drops 16
+    * Phone numbers/Sim Cards 31
+    * Verification Service 8
+    * Verified Accounts 272
+    * Dumps 82
+    * Credit Card Skimmers 13
+    * XXX Logins 329
+    * VPN/Proxy/RDP 109
+    * Other 852
+  * Hacking 
+    * Ransomware 9
+    * Malware/Botnets 64
+    * Exploits 23
+    * DDoS 5
+    * Spamming/Anti CAPTCHA 23
+    * Access for Sale 3
+    * Data for Sale 43
+    * Phishing/Social Engineering 52
+    * Hackers for Hire 17
+    * Scripts/Applications 49
+    * Hosting 8
+    * Other 95
+  * Forgeries/Counterfeits 
+    * Currencies 34
+    * Documents (Digital) 164
+    * Documents (Physical) 38
+    * Jewellery 9
+    * Clothing 19
+    * Electronics 5
+    * Art Works 2
+    * Deep Fake 1
+    * Other 11
+  * Other 
+    * Cash to Crypto 0
+    * Crypto to Cash 0
+    * Real Documents 9
+    * Self-defense 11
+    * Guides and Tutorials 1330
+    * Custom Orders 8
+    * Other 469
+♡ * Bitcoin and Monero accepted
+
+This item is listed as an escrow. The order process is as follows:
+
+  * After the buyer has placed an order, the vendor has 5 days to accept or reject the order.
+  * The buyer will get a full refund if the vendor doesn't accept the order within 5 days.
+  * If the buyer doesn't want to wait 5 days, there will be a cancel button after 48 hours to cancel the order and get a full refund.
+  * After the order got accepted, the vendor has 5 days to send it. The buyer can not cancel the order at this point.
+  * The buyer will get a full refund if the vendor doesn't send the order within 5 days.
+  * The buyer has 3 days to open a dispute if the order does not match the description.
+  * After the order got finalized, the buyer can leave a review.
+  * If you have any questions, leave a comment or create a post on our forum.

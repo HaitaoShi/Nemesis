@@ -1,0 +1,58 @@
+TITLE: DDOS ANYTHING {EASY ASF} | Nemesis Market
+TEXT:
+DDOS ANYTHING {EASY ASF} | Nemesis Market     
+  
+Hacking  » DDoS
+DDOS ANYTHING {EASY ASF}
+kudz3
+Rating: 4.5 out of 5
+Reviews: 61
+Sales: 210
+15 USD
+Posted 3 weeks ago and last time edited at 2022-12-20 08:11:20 UTC
+Report
+  * Description
+  * Reviews
+✨ You just need IP and it's done, bye bye victim, NON STOP most powerful DDos  
+  
+  
+  
+  
+  
+✨Brute is the best L4 DoS tool in Python3.  
+It will flood the victim's router with UDP packets, so even if there are no
+ports opened,  
+the router will still be overwhelmed and slowed down.  
+Brute allows you to DoS Fivem, Minecraft, or even normal servers.  
+But it can also down a simple family network.  
+  
+  
+  
+  
+  
+✨Features✨  
+\+ The only limit... is you! The faster your connection is, the more powerful
+will be the attack  
+\+ Show informations about the attack in real time  
+\+ Can down servers but also family networks  
+  
+  
+  
+  
+*For educational purposes only*   
+  
+  
+  
+*For educational purposes only*  
+Note: The Author of this tool is not responsible for your actions.  
+  
+Usage:  
+  
++ Enter the IP to Brutalize  
++ Enter port  
++ Bytes per packet press enter for 1250 ->  
++ Set The Threads press enter for 100
+Refund policy
+WILL NOT help, replace or refund if you dispute without DMing me.  
+  
+My DM is always open for such cases, always willing and open for help.

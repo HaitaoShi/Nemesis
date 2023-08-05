@@ -1,0 +1,13 @@
+name: MyApp
+title: MyApp
+username:
+account: lcf9k8-haitao0shi
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 9098836
+bundleId: 7211794
+url: https://lcf9k8-haitao0shi.shinyapps.io/MyApp/
+when: 1683926546.77015
+lastSyncTime: 1683926546.77016
+asMultiple: FALSE
+asStatic: FALSE
