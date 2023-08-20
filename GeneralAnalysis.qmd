@@ -49,43 +49,42 @@ colnames(data)
 ```
 
 ## The number of posts of each type of drugs (Top20)
+
 ```{r,rows.print=54}
 type_counts <- data %>% 
   group_by(Drug_Type) %>% 
   summarise(count = n()) %>% 
   tidyr::separate(Drug_Type, into = c("Drug_Type", "Drug_Sub"), sep = "  » ") %>%
   arrange(desc(count))
-head (type_counts, 20)
+head(type_counts, 20)
 ```
 
-
 ## The number of posts of each drug (Top20)
+
 ```{r}
 #capitalise all the drug names and count 
 data$DrugName <- toupper(data$DrugName)
 item_counts <- data %>% group_by(DrugName) %>% summarise(count = n()) %>% arrange(desc(count))
-head (item_counts, 20)
+head(item_counts, 20)
 ```
 
-
 ## The brand name of the drugs for sale
+
 ```{r}
 data$BrandName <- toupper(data$BrandName) 
 BrandName_Re_NA <- data$BrandName[!is.na(data$BrandName)] #remove NA
-brand_counts <- data.frame(table(BrandName_Re_NA))
+brand_counts <- as_tibble(table(BrandName_Re_NA))
 colnames(brand_counts) <- c("BrandName", "Count")
-brand_counts <- brand_counts[order(-brand_counts$Count),]
+brand_counts <- brand_counts %>% arrange(desc(Count))
 brand_counts
 ```
 
 This table shows each brand name and its number of occurrences, and it can be observed that MONSTERLAB and HYDROGURU are the brands with the highest number of occurrences, and they have more than twice as many occurrences as the other brands. These two brands are not specific to any particular drug, but rather the names of the dealers. They have generated a certain brand effect, representing a guarantee of high-quality drugs.
 
-Another observation is 
+### The brand name of XTC Pills
 
+Another interesting observation is that the brand name of XTC Pills may indicate the strength or purity of these drugs and also provide a guarantee of quality for buyers.
 
-
-
-
-
-
-
+```{r}
+data %>% filter(Drug_Type == "Ecstasy  » XTC Pills"& !is.na(BrandName)) %>% select(Drug_Type, BrandName) %>% unique() 
+```
