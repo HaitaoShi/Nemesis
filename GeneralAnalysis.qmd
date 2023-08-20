@@ -1,0 +1,91 @@
+---
+title: "GeneralAnalysis"
+format: 
+  html:
+    code-fold: true
+    code-tools: true
+---
+
+## About the data
+
+The dataset, scraped from [Nemesis](http://nemesis555nchzn2dogee6mlc7xxgeeshqirmh3yzn4lo5cnd4s5a4yd.onion/) between 1^st^ January to 11^th^ January, contains 1334 files comprising 607 posts on drug sales, 415 posts on fraud, 134 posts providing guides and tutorials on illegal activities, and other miscellaneous posts. In this analysis, we will focus solely on the drug sales-related posts.
+
+As the original documents were in text format, which made it difficult to carry out quantitative analysis, I cleaned the data and put them into a data frame. I then saved the data frame as a CSV file named "complete.csv".
+
+## The payment method
+
+**Bitcoin and Monero accepted.** All items are listed as an **escrow**. The order process is as follows:
+
+-   After the buyer has placed an order, the vendor has 5 days to accept or reject the order.
+-   The buyer will get a full refund if the vendor doesn't accept the order within 5 days.
+-   If the buyer doesn't want to wait 5 days, there will be a cancel button after 48 hours to cancel the order and get a full refund.
+-   After the order got accepted, the vendor has 5 days to send it. The buyer can not cancel the order at this point.
+-   The buyer will get a full refund if the vendor doesn't send the order within 5 days.
+-   The buyer has 3 days to open a dispute if the order does not match the description.
+-   After the order got finalized, the buyer can leave a review.
+-   If you have any questions, leave a comment or create a post on our forum.
+
+## Load Packages and data
+
+```{r}
+#| label: load-packages_data
+#| warning: false
+#| code-fold: true
+
+library(tidyverse)
+library(forcats)
+library(stringr)
+library(tidytext)
+library(igraph)
+library(ggraph)
+library(ggrepel)
+
+
+data  <-  read_csv("/Users/shihaitao/Documents/DarknetProject/Nemesis/complete.csv")
+```
+
+```{r}
+colnames(data)
+```
+
+## The number of posts of each type of drugs (Top20)
+```{r,rows.print=54}
+type_counts <- data %>% 
+  group_by(Drug_Type) %>% 
+  summarise(count = n()) %>% 
+  tidyr::separate(Drug_Type, into = c("Drug_Type", "Drug_Sub"), sep = "  » ") %>%
+  arrange(desc(count))
+head (type_counts, 20)
+```
+
+
+## The number of posts of each drug (Top20)
+```{r}
+#capitalise all the drug names and count 
+data$DrugName <- toupper(data$DrugName)
+item_counts <- data %>% group_by(DrugName) %>% summarise(count = n()) %>% arrange(desc(count))
+head (item_counts, 20)
+```
+
+
+## The brand name of the drugs for sale
+```{r}
+data$BrandName <- toupper(data$BrandName) 
+BrandName_Re_NA <- data$BrandName[!is.na(data$BrandName)] #remove NA
+brand_counts <- data.frame(table(BrandName_Re_NA))
+colnames(brand_counts) <- c("BrandName", "Count")
+brand_counts <- brand_counts[order(-brand_counts$Count),]
+brand_counts
+```
+
+This table shows each brand name and its number of occurrences, and it can be observed that MONSTERLAB and HYDROGURU are the brands with the highest number of occurrences, and they have more than twice as many occurrences as the other brands. These two brands are not specific to any particular drug, but rather the names of the dealers. They have generated a certain brand effect, representing a guarantee of high-quality drugs.
+
+Another observation is 
+
+
+
+
+
+
+
+

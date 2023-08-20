@@ -23,7 +23,7 @@ library(igraph)
 library(ggraph)
 library(ggrepel)
 
-data  <-  read_csv("/Users/shihaitao/Documents/DarknetProject/Darknet/complete.csv")
+data  <-  read_csv("/Users/shihaitao/Documents/DarknetProject/Nemesis/complete.csv")
 ```
 
 ## Several steps to get data ready for analysis
