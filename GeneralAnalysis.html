@@ -130,37 +130,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>data  <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>(<span class="st">"/Users/shihaitao/Documents/DarknetProject/Nemesis/complete.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "File_Name"    "Title"        "DrugName"     "BrandName"    "Drug_Type"   
- [6] "Rating"       "Reviews"      "Sales"        "Ship_From"    "Ship_To"     
-[11] "Ship_Methods" "Main_content" "Availablity"  "Drug_Type_L"  "MainContent" 
-[16] "Refund"       "Review"       "Vendor_Name" </code></pre>
-</div>
-</div>
 </section>
 <section id="the-number-of-posts-of-each-type-of-drugs-top20" class="level2">
 <h2 class="anchored" data-anchor-id="the-number-of-posts-of-each-type-of-drugs-top20">The number of posts of each type of drugs (Top20)</h2>
-<div class="cell" data-rows.print="54">
+<div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>type_counts <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Drug_Type) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate</span>(Drug_Type, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"Drug_Type"</span>, <span class="st">"Drug_Sub"</span>), <span class="at">sep =</span> <span class="st">"  » "</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [37, 38,
-43, 54].</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(type_counts, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Drug_Type) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate</span>(Drug_Type, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"Drug_Type"</span>, <span class="st">"Drug_Sub"</span>), <span class="at">sep =</span> <span class="st">"  » "</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(.,<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 3
@@ -194,10 +175,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#capitalise all the drug names and count </span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>DrugName <span class="ot">&lt;-</span> <span class="fu">toupper</span>(data<span class="sc">$</span>DrugName)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>item_counts <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(DrugName) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(item_counts, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#capitalise all the drug names and count </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>DrugName <span class="ot">&lt;-</span> <span class="fu">toupper</span>(data<span class="sc">$</span>DrugName)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>item_counts <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(DrugName) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(item_counts, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 2
@@ -228,15 +209,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="the-brand-name-of-the-drugs-for-sale" class="level2">
 <h2 class="anchored" data-anchor-id="the-brand-name-of-the-drugs-for-sale">The brand name of the drugs for sale</h2>
+<p>The table below shows each brand name and its number of occurrences, and it can be observed that MONSTERLAB and HYDROGURU are the brands with the highest number of occurrences. These two brands are not specific to any particular drug, but rather the names of the dealers. It seems that they have generated a certain brand effect, representing a guarantee of high-quality drugs.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>BrandName <span class="ot">&lt;-</span> <span class="fu">toupper</span>(data<span class="sc">$</span>BrandName) </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>BrandName_Re_NA <span class="ot">&lt;-</span> data<span class="sc">$</span>BrandName[<span class="sc">!</span><span class="fu">is.na</span>(data<span class="sc">$</span>BrandName)] <span class="co">#remove NA</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>brand_counts <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">table</span>(BrandName_Re_NA))</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(brand_counts) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"BrandName"</span>, <span class="st">"Count"</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>brand_counts <span class="ot">&lt;-</span> brand_counts <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Count))</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>brand_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>BrandName <span class="ot">&lt;-</span> <span class="fu">toupper</span>(data<span class="sc">$</span>BrandName) </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>BrandName_Re_NA <span class="ot">&lt;-</span> data<span class="sc">$</span>BrandName[<span class="sc">!</span><span class="fu">is.na</span>(data<span class="sc">$</span>BrandName)] <span class="co">#remove NA</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>brand_counts <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">table</span>(BrandName_Re_NA))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(brand_counts) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"BrandName"</span>, <span class="st">"Count"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>brand_counts <span class="ot">&lt;-</span> brand_counts <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Count))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>brand_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 81 × 2
@@ -255,14 +237,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ 71 more rows</code></pre>
 </div>
 </div>
-<p>This table shows each brand name and its number of occurrences, and it can be observed that MONSTERLAB and HYDROGURU are the brands with the highest number of occurrences, and they have more than twice as many occurrences as the other brands. These two brands are not specific to any particular drug, but rather the names of the dealers. They have generated a certain brand effect, representing a guarantee of high-quality drugs.</p>
 <section id="the-brand-name-of-xtc-pills" class="level3">
 <h3 class="anchored" data-anchor-id="the-brand-name-of-xtc-pills">The brand name of XTC Pills</h3>
-<p>Another interesting observation is that the brand name of XTC Pills may indicate the strength or purity of these drugs and also provide a guarantee of quality for buyers.</p>
+<p>Another interesting observation is that the brand name of XTC Pills may indicate the strength or purity of these drugs and also provide a guarantee of quality for buyers. This requires further qualitative analysis and exploration.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Drug_Type <span class="sc">==</span> <span class="st">"Ecstasy  » XTC Pills"</span><span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(BrandName)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Drug_Type, BrandName) <span class="sc">%&gt;%</span> <span class="fu">unique</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Drug_Type <span class="sc">==</span> <span class="st">"Ecstasy  » XTC Pills"</span><span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(BrandName)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Drug_Type, BrandName) <span class="sc">%&gt;%</span> <span class="fu">unique</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 18 × 2
@@ -288,9 +269,265 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 18 Ecstasy  » XTC Pills FANTA             </code></pre>
 </div>
 </div>
+</section>
+<section id="the-avalibility-rate" class="level3">
+<h3 class="anchored" data-anchor-id="the-avalibility-rate">The avalibility rate</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>Availablity <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9587459</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="rating-reviews-and-sales" class="level2">
+<h2 class="anchored" data-anchor-id="rating-reviews-and-sales">Rating, Reviews and Sales</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Get the Rating number from strings</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Rating <span class="ot">&lt;-</span> data<span class="sc">$</span>Rating <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_extract</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">d+(</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+)?"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>()</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Select the columns that we need</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>data_RRS <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(DrugName,Drug_Type,Vendor_Name, Rating,Reviews,Sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="lets-see-what-the-header-of-the-new-dataframe-looks-like-and-the-statistical-information-about-ratings-reviews-and-sales." class="level3">
+<h3 class="anchored" data-anchor-id="lets-see-what-the-header-of-the-new-dataframe-looks-like-and-the-statistical-information-about-ratings-reviews-and-sales.">Let’s see what the header of the new DataFrame looks like and the statistical information about ratings, reviews, and sales.</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_RRS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  DrugName       Drug_Type         Vendor_Name Rating Reviews Sales
+  &lt;chr&gt;          &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+1 POWER PLANT XL Cannabis  » Seeds greenpirate    4.5      20    62
+2 KALASHNIKOV    Cannabis  » Seeds Safety1st      5         1     4
+3 KALASHNIKOV    Cannabis  » Seeds greenpirate    4.5      20    62
+4 GORILLA GLUE   Cannabis  » Seeds Safety1st      5         1     4
+5 CHEESE         Cannabis  » Seeds Safety1st      5         1     4
+6 WHITE WIDOW    Cannabis  » Seeds Safety1st      5         1     4</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_RRS[, <span class="fu">c</span>(<span class="st">"Rating"</span>, <span class="st">"Reviews"</span>, <span class="st">"Sales"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Rating         Reviews           Sales      
+ Min.   :0.000   Min.   :   0.0   Min.   :    0  
+ 1st Qu.:4.200   1st Qu.:   2.0   1st Qu.:    2  
+ Median :4.900   Median :  50.0   Median :   97  
+ Mean   :3.787   Mean   : 355.2   Mean   : 1482  
+ 3rd Qu.:5.000   3rd Qu.: 321.0   3rd Qu.: 1054  
+ Max.   :5.000   Max.   :5356.0   Max.   :19712  </code></pre>
+</div>
+</div>
+</section>
+<section id="grouped-summary-statistics-calculate-summary-statistics-for-each-type-of-drug." class="level3">
+<h3 class="anchored" data-anchor-id="grouped-summary-statistics-calculate-summary-statistics-for-each-type-of-drug.">Grouped summary statistics: Calculate summary statistics for each type of drug.</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>group_Drug_Type <span class="ot">&lt;-</span> data_RRS <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Drug_Type) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_rating =</span> <span class="fu">mean</span>(Rating),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">total_reviews =</span> <span class="fu">sum</span>(Reviews),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">toal_sales =</span> <span class="fu">sum</span>(Sales))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><strong>Best-selling drug types (top 20)</strong></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>group_Drug_Type <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">desc</span>(toal_sales)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">20</span>)<span class="sc">%&gt;%</span> <span class="fu">select</span>(Drug_Type,toal_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 2
+   Drug_Type                                     toal_sales
+   &lt;chr&gt;                                              &lt;dbl&gt;
+ 1 Cannabis  » Buds and Flowers                      133324
+ 2 Cannabis  » Hash                                   73373
+ 3 Dissociatives  » Ketamine                          64675
+ 4 Ecstasy  » XTC Pills                               56542
+ 5 Cannabis  » Shake                                  50787
+ 6 Psychedelics  » LSD                                47496
+ 7 Stimulants  » Amphetamine/Speed                    47155
+ 8 Opioids  » Other                                   33209
+ 9 Opioids  » Fentanyl                                32956
+10 Benzodiazepine (Benzos)  » Diazepam (Valium)       30997
+11 Prescription Drugs                                 29243
+12 Cannabis  » Concentrates                           28987
+13 Opioids  » Codeine                                 25898
+14 Opioids  » Heroin                                  22239
+15 Ecstasy  » MDMA                                    21664
+16 Stimulants  » Cocaine                              19789
+17 Opioids  » Oxycodone                               19668
+18 Benzodiazepine (Benzos)  » Alprazolam (Xanax)      18635
+19 Benzodiazepine (Benzos)  » Pills                   17248
+20 Stimulants  » Methamphetamine (Meth)               14298</code></pre>
+</div>
+</div>
+<p><strong>Highest rated drug types (top 20)</strong></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>group_Drug_Type <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">desc</span>(mean_rating)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">20</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Drug_Type, mean_rating)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 2
+   Drug_Type                            mean_rating
+   &lt;chr&gt;                                      &lt;dbl&gt;
+ 1 Benzodiazepine (Benzos)  » RCs              5   
+ 2 Benzodiazepine (Benzos)  » Zopiclone        5   
+ 3 Opioids  » Codeine                          5   
+ 4 Opioids  » Codeine Syrups/Solutions         5   
+ 5 Opioids  » Dihydrocodeine                   5   
+ 6 Opioids  » Hydrocodone                      5   
+ 7 Opioids  » Hydromorphone                    5   
+ 8 Opioids  » Opium                            5   
+ 9 Weight Loss                                 5   
+10 Steroids                                    4.98
+11 Cannabis  » Concentrates                    4.93
+12 Cannabis  » Shake                           4.9 
+13 Psychedelics  » Other                       4.9 
+14 Psychedelics  » Shrooms                     4.85
+15 Cannabis  » Seeds                           4.83
+16 Opioids  » Buprenorphine/Naloxone           4.8 
+17 Opioids  » Methadone                        4.8 
+18 Stimulants  » Adderall                      4.74
+19 Benzodiazepine (Benzos)  » Other            4.72
+20 Opioids  » Fentanyl                         4.7 </code></pre>
+</div>
+</div>
+<p><strong>Types of drugs that get the most views (top 20)</strong></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>group_Drug_Type <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">desc</span>(total_reviews)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">20</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Drug_Type, total_reviews)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 2
+   Drug_Type                                    total_reviews
+   &lt;chr&gt;                                                &lt;dbl&gt;
+ 1 Cannabis  » Buds and Flowers                         41887
+ 2 Prescription Drugs                                   13902
+ 3 Stimulants  » Cocaine                                12982
+ 4 Benzodiazepine (Benzos)  » Diazepam (Valium)         12595
+ 5 Dissociatives  » Ketamine                            11888
+ 6 Opioids  » Codeine                                   10704
+ 7 Ecstasy  » XTC Pills                                 10147
+ 8 Cannabis  » Hash                                      9740
+ 9 Cannabis  » Concentrates                              8411
+10 Psychedelics  » LSD                                   8253
+11 Opioids  » Oxycodone                                  8187
+12 Stimulants  » Amphetamine/Speed                       7897
+13 Opioids  » Tramadol                                   5371
+14 Benzodiazepine (Benzos)  » Zopiclone                  5356
+15 Opioids  » Dihydrocodeine                             5356
+16 Opioids  » Heroin                                     5129
+17 Cannabis  » Shake                                     4241
+18 Steroids                                              3558
+19 Stimulants  » Methamphetamine (Meth)                  3482
+20 Stimulants  » Adderall                                2674</code></pre>
+</div>
+</div>
+</section>
+<section id="grouped-summary-statistics-calculate-summary-statistics-for-vendors." class="level3">
+<h3 class="anchored" data-anchor-id="grouped-summary-statistics-calculate-summary-statistics-for-vendors.">Grouped summary statistics: Calculate summary statistics for Vendors.</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>group_Vendor <span class="ot">&lt;-</span> data_RRS <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Vendor_Name) <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_rating =</span> <span class="fu">mean</span>(Rating),</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">total_reviews =</span> <span class="fu">sum</span>(Reviews),</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">total_sales =</span> <span class="fu">sum</span>(Sales))</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>group_Vendor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 148 × 4
+   Vendor_Name        mean_rating total_reviews total_sales
+   &lt;chr&gt;                    &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;
+ 1 1hero                      4.9          1842        5787
+ 2 4free                      0               0           0
+ 3 AmphetamineCowboys         5               2           7
+ 4 AmsterdamExpress           4.1          2064        8910
+ 5 AskFrankUKXXX              4.9           178         337
+ 6 BMPLC                      4.9           112         156
+ 7 BSPLLC                     0               0           3
+ 8 Blacklist                  4.6          2448        3440
+ 9 BritishPablo               4.8          1862        5418
+10 Bulkexpress                4.4            34          68
+# ℹ 138 more rows</code></pre>
+</div>
+</div>
+<p><strong>Top 10 vendors based on sales</strong></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>group_Vendor <span class="sc">%&gt;%</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_sales)) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Vendor_Name,total_sales) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   Vendor_Name     total_sales
+   &lt;chr&gt;                 &lt;dbl&gt;
+ 1 SocialPharma         103577
+ 2 maurelius            101537
+ 3 MicroDroper           65912
+ 4 queenofcannabis       58002
+ 5 PingPongUK            44556
+ 6 discover              44148
+ 7 DrRelax               40992
+ 8 TorDrug               39424
+ 9 drugstar              36168
+10 straightfromnl        35666</code></pre>
+</div>
+</div>
+<p><strong>Bottom 10 vendors based on sales</strong></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>group_Vendor <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_sales)) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Vendor_Name,total_sales) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   Vendor_Name      total_sales
+   &lt;chr&gt;                  &lt;dbl&gt;
+ 1 STUNNAGANG                 0
+ 2 Shark_Hash                 0
+ 3 TreasureCrib               0
+ 4 WEEDBAR                    0
+ 5 YourFavSisters             0
+ 6 cocainecartel              0
+ 7 commissionerau             0
+ 8 letsgetbaked               0
+ 9 realchemsupplier           0
+10 wholelottacarts            0</code></pre>
+</div>
+</div>
+<p>By comparing sales figures, we can identify who the top sellers are on this platform, as well as who the newcomers or less established sellers might be. We can further examine their advertising, returns policies, and self-introductions to understand why some sellers’ products are more popular and in what ways they gain the trust of buyers.</p>
+</section>
+</section>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<p>The sample size of the data is small. The time span for collecting the data is quite extensive (i.e., 11 days). During these days, trading did not cease and the data such as rating, the number of sale and reviews will change, which may introduce inaccuracies into the statistics.</p>
 <!-- -->
 
-</section>
 </section>
 
 </main>
@@ -643,96 +880,187 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "GeneralAnalysis"</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## About the data</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>The dataset, scraped from <span class="co">[</span><span class="ot">Nemesis</span><span class="co">](http://nemesis555nchzn2dogee6mlc7xxgeeshqirmh3yzn4lo5cnd4s5a4yd.onion/)</span> between 1^st^ January to 11^th^ January, contains 1334 files comprising 607 posts on drug sales, 415 posts on fraud, 134 posts providing guides and tutorials on illegal activities, and other miscellaneous posts. In this analysis, we will focus solely on the drug sales-related posts.</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>As the original documents were in text format, which made it difficult to carry out quantitative analysis, I cleaned the data and put them into a data frame. I then saved the data frame as a CSV file named "complete.csv".</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## The payment method</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>**Bitcoin and Monero accepted.** All items are listed as an **escrow**. The order process is as follows:</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>After the buyer has placed an order, the vendor has 5 days to accept or reject the order.</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The buyer will get a full refund if the vendor doesn't accept the order within 5 days.</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If the buyer doesn't want to wait 5 days, there will be a cancel button after 48 hours to cancel the order and get a full refund.</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>After the order got accepted, the vendor has 5 days to send it. The buyer can not cancel the order at this point.</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The buyer will get a full refund if the vendor doesn't send the order within 5 days.</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The buyer has 3 days to open a dispute if the order does not match the description.</span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>After the order got finalized, the buyer can leave a review.</span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If you have any questions, leave a comment or create a post on our forum.</span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Load Packages and data</span></span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: load-packages_data</span></span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
-<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
-<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>data  <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>(<span class="st">"/Users/shihaitao/Documents/DarknetProject/Nemesis/complete.csv"</span>)</span>
-<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data)</span>
-<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## The number of posts of each type of drugs (Top20)</span></span>
-<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,rows.print=54}</span></span>
-<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>type_counts <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Drug_Type) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate</span>(Drug_Type, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"Drug_Type"</span>, <span class="st">"Drug_Sub"</span>), <span class="at">sep =</span> <span class="st">"  » "</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span>
-<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(type_counts, <span class="dv">20</span>)</span>
-<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## The number of posts of each drug (Top20)</span></span>
-<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a><span class="co">#capitalise all the drug names and count </span></span>
-<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>DrugName <span class="ot">&lt;-</span> <span class="fu">toupper</span>(data<span class="sc">$</span>DrugName)</span>
-<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a>item_counts <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(DrugName) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span>
-<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(item_counts, <span class="dv">20</span>)</span>
-<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## The brand name of the drugs for sale</span></span>
-<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>BrandName <span class="ot">&lt;-</span> <span class="fu">toupper</span>(data<span class="sc">$</span>BrandName) </span>
-<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a>BrandName_Re_NA <span class="ot">&lt;-</span> data<span class="sc">$</span>BrandName[<span class="sc">!</span><span class="fu">is.na</span>(data<span class="sc">$</span>BrandName)] <span class="co">#remove NA</span></span>
-<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a>brand_counts <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">table</span>(BrandName_Re_NA))</span>
-<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(brand_counts) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"BrandName"</span>, <span class="st">"Count"</span>)</span>
-<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a>brand_counts <span class="ot">&lt;-</span> brand_counts <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Count))</span>
-<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a>brand_counts</span>
-<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a>This table shows each brand name and its number of occurrences, and it can be observed that MONSTERLAB and HYDROGURU are the brands with the highest number of occurrences, and they have more than twice as many occurrences as the other brands. These two brands are not specific to any particular drug, but rather the names of the dealers. They have generated a certain brand effect, representing a guarantee of high-quality drugs.</span>
-<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a><span class="fu">### The brand name of XTC Pills</span></span>
-<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a>Another interesting observation is that the brand name of XTC Pills may indicate the strength or purity of these drugs and also provide a guarantee of quality for buyers.</span>
-<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Drug_Type <span class="sc">==</span> <span class="st">"Ecstasy  » XTC Pills"</span><span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(BrandName)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Drug_Type, BrandName) <span class="sc">%&gt;%</span> <span class="fu">unique</span>() </span>
-<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb30" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "GeneralAnalysis"</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## About the data</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>The dataset, scraped from <span class="co">[</span><span class="ot">Nemesis</span><span class="co">](http://nemesis555nchzn2dogee6mlc7xxgeeshqirmh3yzn4lo5cnd4s5a4yd.onion/)</span> between 1^st^ January to 11^th^ January, contains 1334 files comprising 607 posts on drug sales, 415 posts on fraud, 134 posts providing guides and tutorials on illegal activities, and other miscellaneous posts. In this analysis, we will focus solely on the drug sales-related posts.</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>As the original documents were in text format, which made it difficult to carry out quantitative analysis, I cleaned the data and put them into a data frame. I then saved the data frame as a CSV file named "complete.csv".</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## The payment method</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>**Bitcoin and Monero accepted.** All items are listed as an **escrow**. The order process is as follows:</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>After the buyer has placed an order, the vendor has 5 days to accept or reject the order.</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The buyer will get a full refund if the vendor doesn't accept the order within 5 days.</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If the buyer doesn't want to wait 5 days, there will be a cancel button after 48 hours to cancel the order and get a full refund.</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>After the order got accepted, the vendor has 5 days to send it. The buyer can not cancel the order at this point.</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The buyer will get a full refund if the vendor doesn't send the order within 5 days.</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The buyer has 3 days to open a dispute if the order does not match the description.</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>After the order got finalized, the buyer can leave a review.</span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If you have any questions, leave a comment or create a post on our forum.</span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Load Packages and data</span></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: load-packages_data</span></span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
+<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a>data  <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>(<span class="st">"/Users/shihaitao/Documents/DarknetProject/Nemesis/complete.csv"</span>)</span>
+<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## The number of posts of each type of drugs (Top20)</span></span>
+<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Drug_Type) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate</span>(Drug_Type, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"Drug_Type"</span>, <span class="st">"Drug_Sub"</span>), <span class="at">sep =</span> <span class="st">"  » "</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count)) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(.,<span class="dv">20</span>)</span>
+<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-62"><a href="#cb30-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-63"><a href="#cb30-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## The number of posts of each drug (Top20)</span></span>
+<span id="cb30-64"><a href="#cb30-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-67"><a href="#cb30-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-68"><a href="#cb30-68" aria-hidden="true" tabindex="-1"></a><span class="co">#capitalise all the drug names and count </span></span>
+<span id="cb30-69"><a href="#cb30-69" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>DrugName <span class="ot">&lt;-</span> <span class="fu">toupper</span>(data<span class="sc">$</span>DrugName)</span>
+<span id="cb30-70"><a href="#cb30-70" aria-hidden="true" tabindex="-1"></a>item_counts <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(DrugName) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span>
+<span id="cb30-71"><a href="#cb30-71" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(item_counts, <span class="dv">20</span>)</span>
+<span id="cb30-72"><a href="#cb30-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-73"><a href="#cb30-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-74"><a href="#cb30-74" aria-hidden="true" tabindex="-1"></a><span class="fu">## The brand name of the drugs for sale</span></span>
+<span id="cb30-75"><a href="#cb30-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-76"><a href="#cb30-76" aria-hidden="true" tabindex="-1"></a>The table below shows each brand name and its number of occurrences, and it can be observed that MONSTERLAB and HYDROGURU are the brands with the highest number of occurrences. These two brands are not specific to any particular drug, but rather the names of the dealers. It seems that they have generated a certain brand effect, representing a guarantee of high-quality drugs.</span>
+<span id="cb30-77"><a href="#cb30-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-80"><a href="#cb30-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-81"><a href="#cb30-81" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>BrandName <span class="ot">&lt;-</span> <span class="fu">toupper</span>(data<span class="sc">$</span>BrandName) </span>
+<span id="cb30-82"><a href="#cb30-82" aria-hidden="true" tabindex="-1"></a>BrandName_Re_NA <span class="ot">&lt;-</span> data<span class="sc">$</span>BrandName[<span class="sc">!</span><span class="fu">is.na</span>(data<span class="sc">$</span>BrandName)] <span class="co">#remove NA</span></span>
+<span id="cb30-83"><a href="#cb30-83" aria-hidden="true" tabindex="-1"></a>brand_counts <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">table</span>(BrandName_Re_NA))</span>
+<span id="cb30-84"><a href="#cb30-84" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(brand_counts) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"BrandName"</span>, <span class="st">"Count"</span>)</span>
+<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a>brand_counts <span class="ot">&lt;-</span> brand_counts <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Count))</span>
+<span id="cb30-86"><a href="#cb30-86" aria-hidden="true" tabindex="-1"></a>brand_counts</span>
+<span id="cb30-87"><a href="#cb30-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-88"><a href="#cb30-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-89"><a href="#cb30-89" aria-hidden="true" tabindex="-1"></a><span class="fu">### The brand name of XTC Pills</span></span>
+<span id="cb30-90"><a href="#cb30-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-91"><a href="#cb30-91" aria-hidden="true" tabindex="-1"></a>Another interesting observation is that the brand name of XTC Pills may indicate the strength or purity of these drugs and also provide a guarantee of quality for buyers. This requires further qualitative analysis and exploration.</span>
+<span id="cb30-92"><a href="#cb30-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-95"><a href="#cb30-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-96"><a href="#cb30-96" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Drug_Type <span class="sc">==</span> <span class="st">"Ecstasy  » XTC Pills"</span><span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(BrandName)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Drug_Type, BrandName) <span class="sc">%&gt;%</span> <span class="fu">unique</span>() </span>
+<span id="cb30-97"><a href="#cb30-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-98"><a href="#cb30-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-99"><a href="#cb30-99" aria-hidden="true" tabindex="-1"></a><span class="fu">### The avalibility rate</span></span>
+<span id="cb30-100"><a href="#cb30-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-103"><a href="#cb30-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-104"><a href="#cb30-104" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>Availablity <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-105"><a href="#cb30-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-106"><a href="#cb30-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-107"><a href="#cb30-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rating, Reviews and Sales</span></span>
+<span id="cb30-108"><a href="#cb30-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-111"><a href="#cb30-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-112"><a href="#cb30-112" aria-hidden="true" tabindex="-1"></a><span class="co">#Get the Rating number from strings</span></span>
+<span id="cb30-113"><a href="#cb30-113" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Rating <span class="ot">&lt;-</span> data<span class="sc">$</span>Rating <span class="sc">%&gt;%</span> </span>
+<span id="cb30-114"><a href="#cb30-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_extract</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">d+(</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+)?"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-115"><a href="#cb30-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>()</span>
+<span id="cb30-116"><a href="#cb30-116" aria-hidden="true" tabindex="-1"></a><span class="co">#Select the columns that we need</span></span>
+<span id="cb30-117"><a href="#cb30-117" aria-hidden="true" tabindex="-1"></a>data_RRS <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(DrugName,Drug_Type,Vendor_Name, Rating,Reviews,Sales)</span>
+<span id="cb30-118"><a href="#cb30-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-119"><a href="#cb30-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-120"><a href="#cb30-120" aria-hidden="true" tabindex="-1"></a><span class="fu">### Let's see what the header of the new DataFrame looks like and the statistical information about ratings, reviews, and sales.</span></span>
+<span id="cb30-121"><a href="#cb30-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-124"><a href="#cb30-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-125"><a href="#cb30-125" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_RRS)</span>
+<span id="cb30-126"><a href="#cb30-126" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_RRS[, <span class="fu">c</span>(<span class="st">"Rating"</span>, <span class="st">"Reviews"</span>, <span class="st">"Sales"</span>)])</span>
+<span id="cb30-127"><a href="#cb30-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-128"><a href="#cb30-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-129"><a href="#cb30-129" aria-hidden="true" tabindex="-1"></a><span class="fu">### Grouped summary statistics: Calculate summary statistics for each type of drug.</span></span>
+<span id="cb30-130"><a href="#cb30-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-133"><a href="#cb30-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-134"><a href="#cb30-134" aria-hidden="true" tabindex="-1"></a>group_Drug_Type <span class="ot">&lt;-</span> data_RRS <span class="sc">%&gt;%</span></span>
+<span id="cb30-135"><a href="#cb30-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Drug_Type) <span class="sc">%&gt;%</span></span>
+<span id="cb30-136"><a href="#cb30-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_rating =</span> <span class="fu">mean</span>(Rating),</span>
+<span id="cb30-137"><a href="#cb30-137" aria-hidden="true" tabindex="-1"></a>            <span class="at">total_reviews =</span> <span class="fu">sum</span>(Reviews),</span>
+<span id="cb30-138"><a href="#cb30-138" aria-hidden="true" tabindex="-1"></a>            <span class="at">toal_sales =</span> <span class="fu">sum</span>(Sales))</span>
+<span id="cb30-139"><a href="#cb30-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-140"><a href="#cb30-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-141"><a href="#cb30-141" aria-hidden="true" tabindex="-1"></a>**Best-selling drug types (top 20)**</span>
+<span id="cb30-142"><a href="#cb30-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-145"><a href="#cb30-145" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-146"><a href="#cb30-146" aria-hidden="true" tabindex="-1"></a>group_Drug_Type <span class="sc">%&gt;%</span> </span>
+<span id="cb30-147"><a href="#cb30-147" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">desc</span>(toal_sales)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">20</span>)<span class="sc">%&gt;%</span> <span class="fu">select</span>(Drug_Type,toal_sales)</span>
+<span id="cb30-148"><a href="#cb30-148" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-149"><a href="#cb30-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-150"><a href="#cb30-150" aria-hidden="true" tabindex="-1"></a>**Highest rated drug types (top 20)**</span>
+<span id="cb30-151"><a href="#cb30-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-154"><a href="#cb30-154" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-155"><a href="#cb30-155" aria-hidden="true" tabindex="-1"></a>group_Drug_Type <span class="sc">%&gt;%</span> </span>
+<span id="cb30-156"><a href="#cb30-156" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">desc</span>(mean_rating)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">20</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Drug_Type, mean_rating)</span>
+<span id="cb30-157"><a href="#cb30-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-158"><a href="#cb30-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-159"><a href="#cb30-159" aria-hidden="true" tabindex="-1"></a>**Types of drugs that get the most views (top 20)**</span>
+<span id="cb30-160"><a href="#cb30-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-163"><a href="#cb30-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-164"><a href="#cb30-164" aria-hidden="true" tabindex="-1"></a>group_Drug_Type <span class="sc">%&gt;%</span> </span>
+<span id="cb30-165"><a href="#cb30-165" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">desc</span>(total_reviews)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">20</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Drug_Type, total_reviews)</span>
+<span id="cb30-166"><a href="#cb30-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-167"><a href="#cb30-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-168"><a href="#cb30-168" aria-hidden="true" tabindex="-1"></a><span class="fu">### Grouped summary statistics: Calculate summary statistics for Vendors.</span></span>
+<span id="cb30-169"><a href="#cb30-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-172"><a href="#cb30-172" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-173"><a href="#cb30-173" aria-hidden="true" tabindex="-1"></a>group_Vendor <span class="ot">&lt;-</span> data_RRS <span class="sc">%&gt;%</span></span>
+<span id="cb30-174"><a href="#cb30-174" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Vendor_Name) <span class="sc">%&gt;%</span></span>
+<span id="cb30-175"><a href="#cb30-175" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_rating =</span> <span class="fu">mean</span>(Rating),</span>
+<span id="cb30-176"><a href="#cb30-176" aria-hidden="true" tabindex="-1"></a>            <span class="at">total_reviews =</span> <span class="fu">sum</span>(Reviews),</span>
+<span id="cb30-177"><a href="#cb30-177" aria-hidden="true" tabindex="-1"></a>            <span class="at">total_sales =</span> <span class="fu">sum</span>(Sales))</span>
+<span id="cb30-178"><a href="#cb30-178" aria-hidden="true" tabindex="-1"></a>group_Vendor</span>
+<span id="cb30-179"><a href="#cb30-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-180"><a href="#cb30-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-181"><a href="#cb30-181" aria-hidden="true" tabindex="-1"></a>**Top 10 vendors based on sales**</span>
+<span id="cb30-182"><a href="#cb30-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-185"><a href="#cb30-185" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-186"><a href="#cb30-186" aria-hidden="true" tabindex="-1"></a>group_Vendor <span class="sc">%&gt;%</span> </span>
+<span id="cb30-187"><a href="#cb30-187" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_sales)) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-188"><a href="#cb30-188" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Vendor_Name,total_sales) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-189"><a href="#cb30-189" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb30-190"><a href="#cb30-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-191"><a href="#cb30-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-192"><a href="#cb30-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-193"><a href="#cb30-193" aria-hidden="true" tabindex="-1"></a>**Bottom 10 vendors based on sales**</span>
+<span id="cb30-194"><a href="#cb30-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-197"><a href="#cb30-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-198"><a href="#cb30-198" aria-hidden="true" tabindex="-1"></a>group_Vendor <span class="sc">%&gt;%</span> </span>
+<span id="cb30-199"><a href="#cb30-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_sales)) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-200"><a href="#cb30-200" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Vendor_Name,total_sales) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-201"><a href="#cb30-201" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>(<span class="dv">10</span>)</span>
+<span id="cb30-202"><a href="#cb30-202" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-203"><a href="#cb30-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-204"><a href="#cb30-204" aria-hidden="true" tabindex="-1"></a>By comparing sales figures, we can identify who the top sellers are on this platform, as well as who the newcomers or less established sellers might be. We can further examine their advertising, returns policies, and self-introductions to understand why some sellers' products are more popular and in what ways they gain the trust of buyers.</span>
+<span id="cb30-205"><a href="#cb30-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-208"><a href="#cb30-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-209"><a href="#cb30-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-210"><a href="#cb30-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-211"><a href="#cb30-211" aria-hidden="true" tabindex="-1"></a><span class="fu">## Limitations</span></span>
+<span id="cb30-212"><a href="#cb30-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-213"><a href="#cb30-213" aria-hidden="true" tabindex="-1"></a>The sample size of the data is small. The time span for collecting the data is quite extensive (i.e., 11 days). During these days, trading did not cease and the data such as rating, the number of sale and reviews will change, which may introduce inaccuracies into the statistics.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

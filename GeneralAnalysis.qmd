@@ -44,19 +44,16 @@ library(ggrepel)
 data  <-  read_csv("/Users/shihaitao/Documents/DarknetProject/Nemesis/complete.csv")
 ```
 
-```{r}
-colnames(data)
-```
-
 ## The number of posts of each type of drugs (Top20)
 
-```{r,rows.print=54}
-type_counts <- data %>% 
+```{r}
+#| warning: false
+data %>% 
   group_by(Drug_Type) %>% 
   summarise(count = n()) %>% 
   tidyr::separate(Drug_Type, into = c("Drug_Type", "Drug_Sub"), sep = "  » ") %>%
-  arrange(desc(count))
-head(type_counts, 20)
+  arrange(desc(count)) %>% 
+  head(.,20)
 ```
 
 ## The number of posts of each drug (Top20)
@@ -70,6 +67,8 @@ head(item_counts, 20)
 
 ## The brand name of the drugs for sale
 
+The table below shows each brand name and its number of occurrences, and it can be observed that MONSTERLAB and HYDROGURU are the brands with the highest number of occurrences. These two brands are not specific to any particular drug, but rather the names of the dealers. It seems that they have generated a certain brand effect, representing a guarantee of high-quality drugs.
+
 ```{r}
 data$BrandName <- toupper(data$BrandName) 
 BrandName_Re_NA <- data$BrandName[!is.na(data$BrandName)] #remove NA
@@ -79,12 +78,105 @@ brand_counts <- brand_counts %>% arrange(desc(Count))
 brand_counts
 ```
 
-This table shows each brand name and its number of occurrences, and it can be observed that MONSTERLAB and HYDROGURU are the brands with the highest number of occurrences, and they have more than twice as many occurrences as the other brands. These two brands are not specific to any particular drug, but rather the names of the dealers. They have generated a certain brand effect, representing a guarantee of high-quality drugs.
-
 ### The brand name of XTC Pills
 
-Another interesting observation is that the brand name of XTC Pills may indicate the strength or purity of these drugs and also provide a guarantee of quality for buyers.
+Another interesting observation is that the brand name of XTC Pills may indicate the strength or purity of these drugs and also provide a guarantee of quality for buyers. This requires further qualitative analysis and exploration.
 
 ```{r}
 data %>% filter(Drug_Type == "Ecstasy  » XTC Pills"& !is.na(BrandName)) %>% select(Drug_Type, BrandName) %>% unique() 
 ```
+
+### The avalibility rate
+
+```{r}
+mean(data$Availablity == "Yes", na.rm = TRUE)
+```
+
+## Rating, Reviews and Sales
+
+```{r}
+#Get the Rating number from strings
+data$Rating <- data$Rating %>% 
+  str_extract("\\d+(\\.\\d+)?") %>% 
+  as.numeric()
+#Select the columns that we need
+data_RRS <- data %>% select(DrugName,Drug_Type,Vendor_Name, Rating,Reviews,Sales)
+```
+
+### Let's see what the header of the new DataFrame looks like and the statistical information about ratings, reviews, and sales.
+
+```{r}
+head(data_RRS)
+summary(data_RRS[, c("Rating", "Reviews", "Sales")])
+```
+
+### Grouped summary statistics: Calculate summary statistics for each type of drug.
+
+```{r}
+group_Drug_Type <- data_RRS %>%
+  group_by(Drug_Type) %>%
+  summarise(mean_rating = mean(Rating),
+            total_reviews = sum(Reviews),
+            toal_sales = sum(Sales))
+```
+
+**Best-selling drug types (top 20)**
+
+```{r}
+group_Drug_Type %>% 
+arrange(desc(toal_sales)) %>% head(20)%>% select(Drug_Type,toal_sales)
+```
+
+**Highest rated drug types (top 20)**
+
+```{r}
+group_Drug_Type %>% 
+arrange(desc(mean_rating)) %>% head(20) %>% select(Drug_Type, mean_rating)
+```
+
+**Types of drugs that get the most views (top 20)**
+
+```{r}
+group_Drug_Type %>% 
+arrange(desc(total_reviews)) %>% head(20) %>% select(Drug_Type, total_reviews)
+```
+
+### Grouped summary statistics: Calculate summary statistics for Vendors.
+
+```{r}
+group_Vendor <- data_RRS %>%
+  group_by(Vendor_Name) %>%
+  summarise(mean_rating = mean(Rating),
+            total_reviews = sum(Reviews),
+            total_sales = sum(Sales))
+group_Vendor
+```
+
+**Top 10 vendors based on sales**
+
+```{r}
+group_Vendor %>% 
+  arrange(desc(total_sales)) %>% 
+  select(Vendor_Name,total_sales) %>% 
+  head(10)
+
+```
+
+**Bottom 10 vendors based on sales**
+
+```{r}
+group_Vendor %>% 
+  arrange(desc(total_sales)) %>% 
+  select(Vendor_Name,total_sales) %>% 
+  tail(10)
+```
+
+By comparing sales figures, we can identify who the top sellers are on this platform, as well as who the newcomers or less established sellers might be. We can further examine their advertising, returns policies, and self-introductions to understand why some sellers' products are more popular and in what ways they gain the trust of buyers.
+
+```{r}
+
+```
+
+## Limitations
+
+The sample size of the data is small. The time span for collecting the data is quite extensive (i.e., 11 days). During these days, trading did not cease and the data such as rating, the number of sale and reviews will change, which may introduce inaccuracies into the statistics.
