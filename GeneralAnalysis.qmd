@@ -66,6 +66,8 @@ data %>%
   head(.,20)
 ```
 
+Different types of drug are sold in Nemesis, namely, Cannabis, Dissociatives, Opioids, Steroids, Psychedelics, Stimulants, Prescription Drugs, Benzodiazepine (Benzos), Ecstasy, and others. Some drug type has specific subcategories associated with it. For example, under the drug type Cannabis, the subcategories include Buds and Flowers, Hash, and Shake. The "count" column represents the number of posts for each drug subcategory, indicating the frequency or popularity of each drug subcategory. For instance, the drug subcategory "Buds and Flowers" has a count of 103, and it has the highest number of posts among all the drug subcategories listed. Dissociatives (Ketamine), Ecstasy (XTC Pills), Steroids, and Stimulants (Cocaine, Amphetamine/Speed) also have significant counts, suggesting their popularity in the market.
+
 ## The number of posts of each drug (Top20)
 
 ```{r}
@@ -74,6 +76,8 @@ data$DrugName <- toupper(data$DrugName)
 item_counts <- data %>% group_by(DrugName) %>% summarise(count = n()) %>% arrange(desc(count))
 head(item_counts, 20)
 ```
+
+The data frame consists of the top 20 drug names mentioned in posts. The "count" column represents the number of posts for each drug. It can partly indicate the popularity of each drug. Based on the counts, we can see that LSD (n=14), Heroin (n=9), Gorilla Glue (n=7), Racemic Ketamine (n=7), and Xanax (n=7) have relatively higher counts, suggesting a higher level of discussion or interest in these drugs.
 
 ## The brand name of the drugs for sale
 
@@ -90,7 +94,7 @@ brand_counts
 
 ### The brand name of XTC Pills
 
-Another interesting observation is that the brand name of XTC Pills may indicate the strength or purity of these drugs and also provide a guarantee of quality for buyers. This requires further qualitative analysis and exploration.
+Another interesting observation is that the brand name of XTC Pills may indicate the strength or purity of these drugs and also provide a guarantee of quality for buyers. For instance, ORANGE TESLA with the warning "strong, be careful!" (01025.txt) may harbour more potential strength compared to Pink Glitter Tesla, with the description "very clean and stimulating" (00307.txt). While almost all vendors selling XTC Pills highlight the "high quality" of their products, some emphasise that their XTC Pills have been "lab tested" (13 out of 42 posts) or "black light tested and reagent tested with Marquis and Froehd" (00458 and 01025). Such measures in place serve the primary role of ensuring top-notch quality and utmost safety.
 
 ```{r}
 data %>% filter(Drug_Type == "Ecstasy  » XTC Pills"& !is.na(BrandName)) %>% 
@@ -98,11 +102,19 @@ data %>% filter(Drug_Type == "Ecstasy  » XTC Pills"& !is.na(BrandName)) %>%
   unique() 
 ```
 
-### The avalibility rate
+```{r}
+#| echo: FALSE
+#see the description of XTC Pills
+#view(data %>% filter(Drug_Type =="Ecstasy  » XTC Pills") %>% select(File_Name,BrandName,MainContent)) 
+```
+
+### The availibility rate
 
 ```{r}
 mean(data$Availablity == "Yes", na.rm = TRUE)
 ```
+
+It is worth mentioning that not all drugs available on the market are actually available on Nemesis Market. According to the dataset provided, the availability rate of drugs on the Nemesis Market is 95.87%. This may be due to reasons such as the drug being sold out or the drug vendors being on holiday.
 
 ## Rating, Reviews and Sales
 
@@ -113,19 +125,25 @@ data$Rating <- data$Rating %>%
   as.numeric()
 #Select the columns that we need
 data_RRS <- data %>% select(DrugName,Drug_Type,Vendor_Name, Rating,Reviews,Sales)
+data_RRS %>% filter(Sales==0)
 ```
 
-### Let's see what the header of the new DataFrame looks like and the statistical information about ratings, reviews, and sales.
+127 drugs have never been sold, so it would be better to remove them before analysing the data.
 
 ```{r}
-head(data_RRS)
-summary(data_RRS[, c("Rating", "Reviews", "Sales")])
+data_RRS_noZero <- data_RRS %>% filter(Sales!=0)
+```
+
+### Let's see the statistical information about ratings, reviews, and sales.
+
+```{r}
+summary(data_RRS_noZero[, c("Rating", "Reviews", "Sales")])
 ```
 
 ### Grouped summary statistics: Calculate summary statistics for each type of drug.
 
 ```{r}
-group_Drug_Type <- data_RRS %>%
+group_Drug_Type <- data_RRS_noZero %>%
   group_by(Drug_Type) %>%
   summarise(mean_rating = mean(Rating),
             total_reviews = sum(Reviews),
@@ -146,7 +164,7 @@ group_Drug_Type %>%
 arrange(desc(mean_rating)) %>% head(20) %>% select(Drug_Type, mean_rating)
 ```
 
-**Types of drugs that get the most views (top 20)**
+**Types of drugs that get the most reviews (top 20)**
 
 ```{r}
 group_Drug_Type %>% 
@@ -156,7 +174,7 @@ arrange(desc(total_reviews)) %>% head(20) %>% select(Drug_Type, total_reviews)
 ### Grouped summary statistics: Calculate summary statistics for Vendors.
 
 ```{r}
-group_Vendor <- data_RRS %>%
+group_Vendor <- data_RRS_noZero %>%
   group_by(Vendor_Name) %>%
   summarise(total_reviews = sum(Reviews),
             total_sales = sum(Sales))
@@ -172,7 +190,7 @@ group_Vendor %>%
 
 ```
 
-**Bottom 10 vendors based on sales**
+**Bottom 10 vendors (excluding those who never sold anything) based on sales**
 
 ```{r}
 group_Vendor %>% 
@@ -181,12 +199,83 @@ group_Vendor %>%
   tail(10)
 ```
 
-By comparing sales figures, we can identify who the top sellers are on this platform, as well as who the newcomers or less established sellers might be. We can further examine their advertising, returns policies, and self-introductions to understand why some sellers' products are more popular and in what ways they gain the trust of buyers.
+By comparing sales figures, we can identify that the top 10 sellers are SocialPharma (103577), maurelius(101537), MicroDroper(65912), queenofcannabis(58002), PingPongUK(44556), discover(44148), DrRelax(40992), TorDrug(39424), drugstar(36168), and straightfromnl(35666). The numbers in the parenthesis are sales on this platform. On the other hand, yodiweed(5), BSPLLC(3), kings(3), shinyflakes(3), OliverTwiztt(2), POPEYE_GERMANY(2), DoctorPotenz(1), Grüneapotheke(1), Replicagod(1), UKnarcotics(1) are the newcomers or less established sellers.
+
+We can further examine their advertising, returns policies, and self-introductions to understand why some sellers' products are more popular and in what ways they gain the trust of buyers.
+
+```{r}
+View(data %>% filter(Vendor_Name=="SocialPharma") %>% select(File_Name, Drug_Type, MainContent,Refund,Review))
+```
+
+The highest-selling vendor is called SocialPharma (filename: 00132, 00373, 00483, 00519, 00520, 00721, 00923, 01107), and they primarily sell two types of drugs, namely Benzodiazepine (Benzos) and Opioids. Only Oxycodone is shipped from the United Kingdom to worldwide destinations, and it is marked as "non-refundable/non-reshipable." The other products he sells, namely Zopiclone, Diazepam (Valium), Dihydrocodeine, Codeine, and Tramadol, are sold locally in the UK and have corresponding return and exchange policies. The vendor is a self-employed because he always refers to himself with "me" instead of "us".
+
+Surprisingly, his drug descriptions are often limited to just two lines, specifying the quantity and strength, without mentioning the quality of the products. Similarly, his return and exchange policies are quite brief. He offers either a reshipment or a 50% refund based on the buyer's purchase time and his own perception of the buyer's trustworthiness.
+
+Therefore, we can assume that the trust generated by the high ratings (all five stars) and a large number of reviews no longer requires him to go through the trouble of describing the product and building trust. In a way, the rating system and sales data have established trust that surpasses the need for product descriptions themselves. Another explanation could be attributed to the types of drugs they sell. Most of these drugs are sold in tablets, which gives limited room for detailed descriptions. This is in stark contrast to vendors selling Cannabis.
+
+```{r}
+View(data %>% filter(Vendor_Name=="maurelius") %>% select(File_Name, Drug_Type, MainContent,Refund,Review))
+```
+
+The second-largest vendor in terms of sales is named Maurelius (Filenames: 00028, 00137, 00497, 00498, 00544, 00550, 00553, 00554, 01168, 01170, 01206, 01227, 01240, 01249, 01250, 01253). They specialize in selling Cannabis (Shake, Hash, and Buds and Flowers) with detailed descriptions. **Tetrahydrocannabinol (THC)** level is generally provided as an indicator for potency. Numerous paragraphs are dedicated to describing the aroma and taste of each Cannabis product. For example, when describing Afghan Kush, the aroma and taste of this strain are mentioned three times.
+
+> The aroma of this medical marijuana strain will be like a mango orange farm with a pinch of funky odor. The taste of this strain is not at all harsh. This will have a bland and fruity taste. (01253, Pos. 35-37)
+
+> Flavors\
+> Herbal, Pine, Spicy, Sweet, Woody\
+> Aromas\
+> Earthy, Floral, Kush, Pungent, Spicy, Sweet (01253, Pos. 47-50)
+
+> Aroma
+>
+> As is the case with pretty much every single strain from the Hindu Kush mountain range, the primary aroma of the Afghan Kush strain is one of hash.
+>
+> Dense, powdery, and just a little bit spicy, this strain smells like walking into a familiar and friendly hash pipe shop in the Middle East or West India.
+>
+> There is sweetness there, but the overwhelming characteristic of the aroma is one of dankness and pleasant hash.
+>
+> Flavor
+>
+> The overwhelming quality of the taste of the Afghan Kush smoke is one of sweet hash. It is pretty similar to its aroma, though, with a few key differences that help set it apart.
+>
+> Instead of the intense spiciness that you'd expect after walking nearby any Afghan Kush bud, the leading quality is one of dank hash. As soon as it hits your tongue, you feel almost overpowered by the taste of hashish.
+>
+> In a way, Afghan Kush tastes like a real marijuana experience -- that quintessential flavor quality that makes smoking marijuana what it is. (01253, Pos. 85-100)
+
+Furthermore, the heritage/hybrid of Cannabis is also an important aspect that vendors want to emphasise to highlight the rarity and effects of their products. For example:
+
+> Alien Cookies is an evenly balanced hybrid (50% sativa/50% indica) strain created through a cross of the popular Alien Dawg X Girl Scout Cookies strains. This bud is incredibly rare to find, but totally worth it every time because of its flawless combination of its parents' effects. (01240, Pos. 27-30)
+
+The effects of different drugs on the body reveals several patterns:
+
+1.  Social Behavior and Creativity: Individuals who seek these drugs for their psychotropic effects may seek to experience heightened sociability, amplified ethusiasm and to facilitate creative endeavors.
+2.  Euphoria and Blissful Sensations: These effects may contribute to a sense of happiness, cheerfulness, and laughter, thereby attracting individuals seeking positive emotional experiences.
+3.  Relaxation and Body Buzz: This combination of physical relaxation and elevated mood may be appealing to individuals seeking stress relief, tranquility, and a soothing experience.
+4.  Medicinal Benefits: Individuals may turn to these drugs for potential therapeutic effects.
+5.  Sleep and Sedation: Some individuals may seek these drugs to aid with sleep-related issues or relaxation before bedtime.
+
+**Other ways to attract purchase:**
+
+1.  Being frankly about the side effects: while dry mouth and dry eyes are often mentioned in the posts, medical adverse reactions are listed. For example,
+
+    > ADVERSE REACTIONS: Dry mouth, Dry eyes \
+    > MEDICAL Depression, Insomnia, Stress, Cramps, Fatigue (00498, Pos. 59-60)
+
+    By providing honest and transparent information about the side effects and dangers of drugs, vendors can, to some extent, build trust. Potential users may be more inclined to work with vendors who are concerned about user safety. Vendors may feel that they have an ethical responsibility to provide accurate information to potential users to ensure that users are able to make informed decisions.
+
+2.  The minimal negative side effects: for example, the vendor points out that Amnesia Haze is a sativa strain with minimal negative side effects compared to other sativa strains, as it doesn't induce dizziness, paranoia, anxiety, or nausea. The main drawback of Amnesia Haze is dry mouth (cotton mouth), which can be alleviated by staying hydrated before, during, and after cannabis consumption. (see 00497, Pos. 92-101)
+
+> Refund Policy: "If your order doesn't show up we can offer you 50% reship or refund of the original order. For years we used to reship 100% of the orders but unfortunately we live in a world where people take advantage of you and sometimes our clients lie when it comes to receiving orders. Please understand that we are here for money and we feel sorry that honnest men/women have to suffer the loss. Besides, you are buying weed, not vegetables. :)"
+
+```{r}
+#| echo: false
+View(data %>% filter(Vendor_Name=="MicroDroper") %>% select(File_Name, Drug_Type, MainContent,Refund,Review))
+```
 
 ### Bar plot of average rating per Drug_Type:
 
 ```{r}
-data_RRS %>%
+data_RRS_noZero %>%
   group_by(Drug_Type) %>%
   summarise(mean_rating = mean(Rating)) %>%
   arrange(mean_rating) %>%
@@ -203,7 +292,7 @@ data_RRS %>%
 ### Scatter plot of Sales vs. Review
 
 ```{r}
-ggplot(data_RRS, aes(x = Reviews, y = Sales)) +
+ggplot(data_RRS_noZero, aes(x = Reviews, y = Sales)) +
   geom_point() +
   theme_minimal() +
   labs(title = "Sales vs. Reviews", x = "Reviews", y = "Sales") +
@@ -213,8 +302,7 @@ ggplot(data_RRS, aes(x = Reviews, y = Sales)) +
 ### correlation
 
 ```{r}
-data_filtered <- data_RRS[!(data_RRS$Sales == 0),] #remove the product that has never be sold.
-cor(data_filtered[, c("Rating", "Reviews", "Sales")])
+cor(data_RRS_noZero[, c("Rating", "Reviews", "Sales")])
 ```
 
 The correlation between the number of reviews and the number of sales is the strongest, with a correlation coefficient of 0.665. This means that an increase in sales is likely due to an increase in the number of reviews. The correlation between the number of reviews and the drug rating is weak, with a correlation coefficient of 0.153. The correlation between the number of sales and the drug rating is also weak, with a correlation coefficient of 0.129. This indicates that drug rating may not have a significant impact on the increase in number of sales.
@@ -222,7 +310,7 @@ The correlation between the number of reviews and the number of sales is the str
 ### Multiple Linear Regression
 
 ```{r}
-model <- lm(Sales ~ Rating + Reviews, data = data_filtered)
+model <- lm(Sales ~ Rating + Reviews, data = data_RRS_noZero)
 summary(model)
 par(mfrow = c(2, 2), mar = c(4, 4, 2, 1), oma = c(0, 0, 2, 0))
 plot(model)
@@ -369,6 +457,8 @@ This diagram presents observations regarding the sending and destination locatio
 -   **Weight Loss:** Based on the available data, weight loss drugs are shipped from Poland.
 
 In summary, the sending and destination locations vary for different drug types. Some drugs circulate primarily within specific regions, while others have a global circulation. However, the distribution of vendors appears to be concentrated within the UK and EU regions, with sporadic presence of US-based vendors. These insights can help us understand the circulation trends and market demand for different drug types.
+
+### 
 
 ## Limitations
 
