@@ -1,0 +1,189 @@
+---
+title: "GeneralAnalysis"
+format: 
+  html:
+    code-fold: false
+    code-tools: true
+---
+
+## About the data
+
+The dataset, scraped from [Nemesis](http://nemesis555nchzn2dogee6mlc7xxgeeshqirmh3yzn4lo5cnd4s5a4yd.onion/) between 1^st^ January to 11^th^ January, contains 1334 files comprising 607 posts on drug sales, 415 posts on fraud, 134 posts providing guides and tutorials on illegal activities, and other miscellaneous posts. In this analysis, we will focus solely on the drug sales-related posts.
+
+As the original documents were in text format, which made it difficult to carry out quantitative analysis, I cleaned the data and put them into a data frame. I then saved the data frame as a CSV file named "complete.csv".
+
+## The payment method
+
+**Bitcoin and Monero accepted.** All items are listed as an **escrow**. The order process is as follows:
+
+-   After the buyer has placed an order, the vendor has 5 days to accept or reject the order.
+-   The buyer will get a full refund if the vendor doesn't accept the order within 5 days.
+-   If the buyer doesn't want to wait 5 days, there will be a cancel button after 48 hours to cancel the order and get a full refund.
+-   After the order got accepted, the vendor has 5 days to send it. The buyer can not cancel the order at this point.
+-   The buyer will get a full refund if the vendor doesn't send the order within 5 days.
+-   The buyer has 3 days to open a dispute if the order does not match the description.
+-   After the order got finalized, the buyer can leave a review.
+-   If you have any questions, leave a comment or create a post on our forum.
+
+## Load Packages and data
+
+```{r}
+#| label: load-packages_data
+#| warning: false
+#| code-fold: true
+
+library(tidyverse)
+library(forcats)
+library(stringr)
+library(tidytext)
+library(igraph)
+library(ggraph)
+library(ggrepel)
+library(car)
+library(geosphere)
+library(countrycode)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(sf)
+library(lwgeom)
+library(ggsankey)
+library(networkD3)
+
+
+
+data  <-  read_csv("/Users/shihaitao/Documents/DarknetProject/Nemesis/complete.csv")
+```
+
+## The number of posts of each type of drugs (Top20)
+
+```{r}
+#| warning: false
+data %>% 
+  group_by(Drug_Type) %>% 
+  summarise(count = n()) %>% 
+  tidyr::separate(Drug_Type, into = c("Drug_Type", "Drug_Sub"), sep = "  » ") %>%
+  arrange(desc(count)) %>% 
+  head(.,20)
+```
+
+Different types of drug are sold in Nemesis, namely, Cannabis, Dissociatives, Opioids, Steroids, Psychedelics, Stimulants, Prescription Drugs, Benzodiazepine (Benzos), Ecstasy, and others. Some drug type has specific subcategories associated with it. For example, under the drug type Cannabis, the subcategories include Buds and Flowers, Hash, and Shake. The "count" column represents the number of posts for each drug subcategory, indicating the frequency or popularity of each drug subcategory. For instance, the drug subcategory "Buds and Flowers" has a count of 103, and it has the highest number of posts among all the drug subcategories listed. Dissociatives (Ketamine), Ecstasy (XTC Pills), Steroids, and Stimulants (Cocaine, Amphetamine/Speed) also have significant counts, suggesting their popularity in the market.
+
+## The number of posts of each drug (Top20)
+
+```{r}
+#capitalise all the drug names and count 
+data$DrugName <- toupper(data$DrugName)
+item_counts <- data %>% group_by(DrugName) %>% summarise(count = n()) %>% arrange(desc(count))
+head(item_counts, 20)
+```
+
+The data frame consists of the top 20 drug names mentioned in posts. The "count" column represents the number of posts for each drug. It can partly indicate the popularity of each drug. Based on the counts, we can see that LSD (n=14), Heroin (n=9), Gorilla Glue (n=7), Racemic Ketamine (n=7), and Xanax (n=7) have relatively higher counts, suggesting a higher level of discussion or interest in these drugs.
+
+## The brand name of the drugs for sale
+
+The table below shows each brand name and its number of occurrences, and it can be observed that MONSTERLAB and HYDROGURU are the brands with the highest number of occurrences. These two brands are not specific to any particular drug, but rather the names of the dealers. It seems that they have generated a certain brand effect, representing a guarantee of high-quality drugs.
+
+```{r}
+data$BrandName <- toupper(data$BrandName) 
+BrandName_Re_NA <- data$BrandName[!is.na(data$BrandName)] #remove NA
+brand_counts <- as_tibble(table(BrandName_Re_NA))
+colnames(brand_counts) <- c("BrandName", "Count")
+brand_counts <- brand_counts %>% arrange(desc(Count))
+brand_counts
+```
+
+### The brand name of XTC Pills
+
+Another interesting observation is that the brand name of XTC Pills may indicate the strength or purity of these drugs and also provide a guarantee of quality for buyers. For instance, ORANGE TESLA with the warning "strong, be careful!" (01025.txt) may harbour more potential strength compared to Pink Glitter Tesla, with the description "very clean and stimulating" (00307.txt). While almost all vendors selling XTC Pills highlight the "high quality" of their products, some emphasise that their XTC Pills have been "lab tested" (13 out of 42 posts) or "black light tested and reagent tested with Marquis and Froehd" (00458 and 01025). Such measures in place serve the primary role of ensuring top-notch quality and utmost safety.
+
+```{r}
+data %>% filter(Drug_Type == "Ecstasy  » XTC Pills"& !is.na(BrandName)) %>% 
+  select(Drug_Type, BrandName) %>% 
+  unique() 
+```
+
+```{r}
+#| echo: FALSE
+#see the description of XTC Pills
+#view(data %>% filter(Drug_Type =="Ecstasy  » XTC Pills") %>% select(File_Name,BrandName,MainContent)) 
+```
+
+### The availibility rate
+
+```{r}
+mean(data$Availablity == "Yes", na.rm = TRUE)
+```
+
+It is worth mentioning that not all drugs available on the market are actually available on Nemesis Market. According to the dataset provided, the availability rate of drugs on the Nemesis Market is 95.87%. This may be due to reasons such as the drug being sold out or the drug vendors being on holiday.
+
+
+## Rating, Reviews and Sales
+
+```{r}
+#Get the Rating number from strings
+data$Rating <- data$Rating %>% 
+  str_extract("\\d+(\\.\\d+)?") %>% 
+  as.numeric()
+#Select the columns that we need
+data_RRS <- data %>% select(DrugName,Drug_Type,Vendor_Name, Rating,Reviews,Sales)
+data_RRS %>% filter(Sales==0)
+```
+
+127 drugs have never been sold, so it would be better to remove them before analysing the data.
+
+```{r}
+data_RRS_noZero <- data_RRS %>% 
+  filter(Sales!=0)
+data_RRS_noZero %>% 
+  group_by(Vendor_Name) %>% arrange(desc(Sales)) %>% head(10)
+```
+
+One important point here is that the ratings, reviews, and sales displayed on each post are not specific to the drug being sold itself, but rather pertain to the vendor. In other words, the ratings, reviews, and sales are a comprehensive evaluation of the vendor. From the data frame above, we can see the drugs being by the vendor are different, but the number of Rating, Reviews and Sales are the same. Since every vendor can sell different types of drugs, it would be statistically almost impossible to know the best-selling drug types, highest-rated drug types, or the types of drugs that receive the most reviews.
+
+As previously indicated, the data collection period extends over a span of 11 days. It is important to note that trading activities were taking place throughout this duration, resulting in fluctuations in variables such as ratings, sales, and reviews. For instance, a comparison of the reviews and sales numbers for the vendor XANAX reveals minor disparities. Consequently, I retain the row containing the highest sales number as the definitive value for the rating, reviews, and sales of each vendor.
+
+
+### The statistical information about ratings, reviews, and sales.
+
+```{r}
+Vendor_RRS <- data_RRS_noZero %>% 
+  select(Vendor_Name,Rating,Reviews,Sales) %>% 
+  group_by(Vendor_Name) %>% arrange(desc(Sales)) %>% 
+  slice(1) %>% 
+  ungroup() 
+summary(Vendor_RRS[, c("Rating", "Reviews", "Sales")])
+
+```
+
+
+### Scatter plot of Sales vs. Review
+
+```{r}
+ggplot(Vendor_RRS, aes(x = Reviews, y = Sales)) +
+  geom_point() +
+  theme_minimal() +
+  labs(title = "Sales vs. Reviews", x = "Reviews", y = "Sales") +
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+
+### correlation
+
+```{r}
+cor(Vendor_RRS[, c("Rating", "Reviews", "Sales")])
+```
+
+
+
+
+**Top 10 vendors based on sales**
+
+```{r}
+head(Vendor_RRS %>% 
+       arrange(desc(Sales)), n=10) 
+```
+
+
+
+
+
