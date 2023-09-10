@@ -254,23 +254,28 @@ The effects of different drugs on the body reveals several patterns:
 4.  Medicinal Benefits: Individuals may turn to these drugs for potential therapeutic effects.
 5.  Sleep and Sedation: Some individuals may seek these drugs to aid with sleep-related issues or relaxation before bedtime.
 
-**Other ways to attract purchase:**
+**Ways to attract purchase or gain trust:**
 
 1.  Being frankly about the side effects: while dry mouth and dry eyes are often mentioned in the posts, medical adverse reactions are listed. For example,
 
-    > ADVERSE REACTIONS: Dry mouth, Dry eyes \
+    > ADVERSE REACTIONS: Dry mouth, Dry eyes\
     > MEDICAL Depression, Insomnia, Stress, Cramps, Fatigue (00498, Pos. 59-60)
 
-    By providing honest and transparent information about the side effects and dangers of drugs, vendors can, to some extent, build trust. Potential users may be more inclined to work with vendors who are concerned about user safety. Vendors may feel that they have an ethical responsibility to provide accurate information to potential users to ensure that users are able to make informed decisions.
+    用过By providing honest and transparent information about the side effects and dangers of drugs, vendors can, to some extent, build trust. Potential users may be more inclined to work with vendors who are concerned about user safety. Vendors may feel that they have an ethical responsibility to provide accurate information to potential users to ensure that users are able to make informed decisions.
 
 2.  The minimal negative side effects: for example, the vendor points out that Amnesia Haze is a sativa strain with minimal negative side effects compared to other sativa strains, as it doesn't induce dizziness, paranoia, anxiety, or nausea. The main drawback of Amnesia Haze is dry mouth (cotton mouth), which can be alleviated by staying hydrated before, during, and after cannabis consumption. (see 00497, Pos. 92-101)
 
 > Refund Policy: "If your order doesn't show up we can offer you 50% reship or refund of the original order. For years we used to reship 100% of the orders but unfortunately we live in a world where people take advantage of you and sometimes our clients lie when it comes to receiving orders. Please understand that we are here for money and we feel sorry that honnest men/women have to suffer the loss. Besides, you are buying weed, not vegetables. :)"
 
+In the refund policy, it was mentioned that 100% of orders would be reshipped in the past, but later it was changed to only providing 50% reshipment or refund. This indicates that there have been changes in the market dynamics. Customers who receive the items can still lie and claim that they have not received them in order to deceive for a refund or reshipment. Sellers are increasingly experiencing such negative experiences, which forces them to adjust their return and exchange policies to ensure overall profitability. This return and exchange policy reflects that the trust between sellers and buyers has not been resolved by the escrow method. The sale of drugs is not regulated or protected by law, and buyers and sellers seek a balance of trust through interaction and experience. This is further evidenced by the refund policy provided by SocialPharma, which is based on his perception of the buyer's trustworthiness.
+
 ```{r}
 #| echo: false
 View(data %>% filter(Vendor_Name=="MicroDroper") %>% select(File_Name, Drug_Type, MainContent,Refund,Review))
 ```
+
+销量第三的vendor是以MicroDroper的昵称进行销售的，这是一个专业售卖ISOTONITAZENE\
+和Fentanyl的team,
 
 ### Bar plot of average rating per Drug_Type:
 
