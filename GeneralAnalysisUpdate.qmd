@@ -244,7 +244,7 @@ MicroDroper offers a 100% reshipment guarantee, but the maximum amount for reshi
 View(data %>% filter(Vendor_Name=="discover") %>% select(File_Name, Drug_Type, MainContent,Refund,Review))
 ```
 
-### discover (Alprazolam (Xanax)  and Ketamine) \<00868, 01067, 01148\>
+### discover (Alprazolam (Xanax) and Ketamine) \<00868, 01067, 01148\>
 
 Although there is no detailed introduction to the product, **safety** and **quick shipping** are the selling points of discover. They ask the buyer to "encrypt address for safety!" Not only does they draw the consumers' attention to dosage control, but they also provides methods to minimise harm. For instance,
 
@@ -269,7 +269,7 @@ View(data %>% filter(Vendor_Name=="YOURDEALER") %>% select(File_Name, Drug_Type,
 
 ### YOURDEALER (Amphetamine/Speed) \<00644, 01104\>
 
-YOURDEALER excels in the trade of speed paste. Despite the scarcity of information regarding the speed paste they offer, YOURDEALER provides a "almost free" tester (approximately 0.5g) for each customer. \
+YOURDEALER excels in the trade of speed paste. Despite the scarcity of information regarding the speed paste they offer, YOURDEALER provides a "almost free" tester (approximately 0.5g) for each customer.\
 
 **Providing free products for customers to experience** can enhance interaction and trust between customers and vendors. It also satisfies customers' curiosity and desire for exploration, making them more willing to try new products. In this process, customers may develop emotional connections with the vendor, thereby increasing their loyalty to the vendor.
 
@@ -312,18 +312,18 @@ Drugstar is a professional retail company that operates across multiple platform
 
 Unlike other merchants, they provide the information about the dosage, timing, and corresponding experience of each drug. For example:
 
-> Dosage \
-> ThresholdS+ Isomer 50 mg Light \
-> 50 - 100 mg Common \
-> 100 - 300 mg Strong \
-> 300 - 450 mg Heavy \
-> 450 mg+ \
+> Dosage\
+> ThresholdS+ Isomer 50 mg Light\
+> 50 - 100 mg Common\
+> 100 - 300 mg Strong\
+> 300 - 450 mg Heavy\
+> 450 mg+\
 > \
-> Duration \
-> Onset 10 - 30 minutes \
-> Come up 5 - 20 minutes \
-> Peak 45 - 90 minutes \
-> Offset 3 - 6 hours \
+> Duration\
+> Onset 10 - 30 minutes\
+> Come up 5 - 20 minutes\
+> Peak 45 - 90 minutes\
+> Offset 3 - 6 hours\
 > After effects 4 - 8 hours (00369, Pos. 61-82)
 
 These detailed introductions help buyers understand the drugs and prepare themselves physiologically and psychologically before use. They can control the dosage for each use, thus reducing harm to their health.
@@ -337,7 +337,7 @@ View(data %>% filter(Vendor_Name=="queenofcannabis") %>% select(File_Name, Drug_
 
 ### Queenofcannabis (Cannabis » Hash/buds and Flowers) \<00530,01094,01194,01200,01205\> (no info about refund policy)
 
-### Maurelius(Cannabis » Shake, Hash, and Buds and Flowers) \<00028, 00137, 00497, 00498, 00544, 00550, 00553, 00554, 01168, 01170, 01206, 01227, 01240, 01249, 01250, 01253\>.  
+### Maurelius(Cannabis » Shake, Hash, and Buds and Flowers) \<00028, 00137, 00497, 00498, 00544, 00550, 00553, 00554, 01168, 01170, 01206, 01227, 01240, 01249, 01250, 01253\>.
 
 For cannabis sellers, **Tetrahydrocannabinol (THC)** level is generally provided as an indicator for potency. Numerous paragraphs are dedicated to describing the aroma and taste of each Cannabis product. For example, when describing Afghan Kush (01253), the aroma and taste of this strain are depicted three times in details (01253, Pos. 35-37, Pos. 47-50, Pos. 85-100 ). Furthermore, the heritage/hybrid of Cannabis is also an important aspect that vendors want to emphasise to highlight the rarity and effects of their products. For example:
 
