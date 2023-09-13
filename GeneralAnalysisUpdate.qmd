@@ -81,7 +81,7 @@ The data frame consists of the top 20 drug names mentioned in posts. The "count"
 
 ## The brand name of the drugs for sale
 
-The table below shows each brand name and its number of occurrences, and it can be observed that MONSTERLAB and HYDROGURU are the brands with the highest number of occurrences. These two brands are not specific to any particular drug, but rather the names of the dealers. It seems that they have generated a certain brand effect, representing a guarantee of high-quality drugs.
+The table below shows each brand name and its number of occurrences, and it can be observed that MONSTERLAB and HYDROGURU are the brands with the highest number of occurrences. These two brands are not specific to any particular drug, but rather the names of the labs. It seems that they have generated a certain brand effect, representing a guarantee of high-quality drugs.
 
 ```{r}
 data$BrandName <- toupper(data$BrandName) 
@@ -108,7 +108,7 @@ data %>% filter(Drug_Type == "Ecstasy  » XTC Pills"& !is.na(BrandName)) %>%
 #view(data %>% filter(Drug_Type =="Ecstasy  » XTC Pills") %>% select(File_Name,BrandName,MainContent)) 
 ```
 
-### The availibility rate
+## The availibility rate
 
 ```{r}
 mean(data$Availablity == "Yes", na.rm = TRUE)
@@ -116,7 +116,41 @@ mean(data$Availablity == "Yes", na.rm = TRUE)
 
 It is worth mentioning that not all drugs available on the market are actually available on Nemesis Market. According to the dataset provided, the availability rate of drugs on the Nemesis Market is 95.87%. This may be due to reasons such as the drug being sold out or the drug vendors being on holiday.
 
-## Rating, Reviews and Sales
+### Ship Methods
+
+-   DECOY STEALTH
+
+-   NINJA STEALTH SHIPPING
+
+-   Discreet Shipping
+
+-   Express Stealth
+
+-   Stealth + Decoy + Priority
+
+**Shipped by courier:**
+
+-   Royal Mail (First class/First class tracked/Free NDD/UK SPECIAL NDD). NDD stands for Next-Day Delivery
+
+-   Canada Post / Canada Post Xpress
+
+-   DE to DE (this is domestic shipping within Germany)
+
+-   Deutsche Post
+
+-   DHL
+
+-   DPD
+
+-   France suivi
+
+-   USPS (domestic/express/express(stealth+)/priority/normal)
+
+-   UPS
+
+-   Worldwide RMS/EMS
+
+### Rating, Reviews and Sales
 
 ```{r}
 #Get the Rating number from strings
@@ -128,7 +162,7 @@ data_RRS <- data %>% select(DrugName,Drug_Type,Vendor_Name, Rating,Reviews,Sales
 data_RRS %>% filter(Sales==0)
 ```
 
-127 drugs have never been sold, so it would be better to remove them before analysing the data.
+127 drugs have never been sold, so it would be better to remove them before analysing the relations between ratings, reveiws and sales.
 
 ```{r}
 data_RRS_noZero <- data_RRS %>% 
@@ -137,7 +171,7 @@ data_RRS_noZero %>%
   group_by(Vendor_Name) %>% arrange(desc(Sales)) %>% head(10)
 ```
 
-From the data frame above, we can see the drugs being by the vendor are different, but the number of Rating, Reviews and Sales are the same. Thus, one important point here is that the ratings, reviews, and sales displayed on each post are not specific to the drug being sold itself, but rather pertain to the vendor. In other words, the ratings, reviews, and sales are a comprehensive evaluation of all the products sold by a vendor. This design reflects to a certain extent the importance and uniqueness of trust in the illegal market. In an environment without legal protections, the reputation of the individual vendor becomes particularly important, and may even outweigh the quality of the specific product itself. Unfortunately, since every vendor can sell different types of drugs, it would be statistically almost impossible to know the best-selling drug types, highest-rated drug types, or the types of drugs that receive the most reviews.
+From the data frame above, we can see the drugs sold by the vendor are different, but the number of Rating, Reviews and Sales are the same. **Thus, one important point here is that the ratings, reviews, and sales displayed on each post are not specific to the drug being sold itself, but rather pertain to the vendor.** In other words, the ratings, reviews, and sales are a comprehensive evaluation of all the products sold by a vendor. This design reflects to a certain extent the importance and uniqueness of trust in the illegal market. In an environment without legal protections, the reputation of the individual vendor becomes particularly important, and may even outweigh the quality of the specific product itself. Unfortunately, since each vendor may sell different types of drugs, it would be statistically impossible to know the best-selling drug types, highest-rated drug types, or the types of drugs that receive the most reviews.
 
 As previously indicated, the data collection period extends over a span of 11 days. It is important to note that trading activities were taking place throughout this duration, resulting in fluctuations in variables such as ratings, sales, and reviews. For instance, a comparison of the reviews and sales numbers for the vendor XANAX （line 7 and 8) reveals minor disparities. Consequently, I retain the row containing the highest sales number as the definitive value for the rating, reviews, and sales of each vendor.
 
@@ -169,7 +203,7 @@ ggplot(Vendor_RRS, aes(x = Reviews, y = Sales)) +
 cor(Vendor_RRS[, c("Rating", "Reviews", "Sales")])
 ```
 
-The correlation between the number of reviews and the number of sales is the strongest, with a correlation coefficient of 0.646. This means that an increase in sales is likely due to an increase in the number of reviews. The correlation between the number of reviews and the drug rating is weak, with a correlation coefficient of 0.148. The correlation between the number of sales and the drug rating is also weak, with a correlation coefficient of 0.138. This indicates that drug rating may not have a significant impact on the increase in number of sales.
+The correlation between the number of reviews and the number of sales is the strongest, with a correlation coefficient of 0.646. This means that an increase in sales is likely due to an increase in the number of reviews. The correlation between the number of reviews and the rating is weak, with a correlation coefficient of 0.148. The correlation between the number of sales and the drug rating is also weak, with a correlation coefficient of 0.138. This indicates that rating may not have a significant impact on the increase in number of sales.
 
 ### Multiple Linear Regression
 
@@ -182,7 +216,7 @@ plot(model)
 
 Although the model only explains 41% of the variation in sales (R^2^ \> 0.7 indicates a good fit of the model), the linear regression model demonstrates that the impact of Reviews on sales is significant, whereas the impact of Rating on sales is not significant.
 
-## **Top 10 and bottom 10 vendors based on sales (excluding those who never sold anything)**
+## **Top 10 vendors based on sales**
 
 ```{r}
 head(Vendor_RRS %>% 
@@ -190,18 +224,13 @@ head(Vendor_RRS %>%
 
 ```
 
-```{r}
-tail(Vendor_RRS %>% 
-       arrange(desc(Sales)), n=10)
-```
-
-By comparing sales figures, we can identify that the top 10 sellers are TorDrug (19712)，MicroDroper (16478)，discover (14720)，Utopia (14697)，YOURDEALER (14179)，SocialPharma (12956)，drugstar (12056)，queenofcannabis (11606)，HighClass (10196)，ozconnection (9792) . The numbers in the parenthesis are sales on this platform. On the other hand, BSPLLC (3)，kings (3)，shinyflakes (3)，OliverTwiztt (2)，POPEYE\_ (2)，GERMANY (2)，hydroguru (1)，DoctorPotenz (1)，Grüneapotheke (1)，Replicagod (1)，UKnarcotics (1) are the newcomers or less established sellers.
+By comparing sales figures, we can identify that the top 10 sellers are TorDrug (19712)，MicroDroper (16478)，discover (14720)，Utopia (14697)，YOURDEALER (14179)，SocialPharma (12956)，drugstar (12056)，queenofcannabis (11606)，HighClass (10196)，ozconnection (9792) . The numbers in the parenthesis are sales on this platform.
 
 We can further examine their advertising, returns policies, and self-introductions to understand why some sellers' products are more popular and in what ways they gain the trust of buyers.
 
 ```{r}
 #| echo: FALSE
-View(data %>% filter(Vendor_Name=="TorDrug") %>% select(File_Name, Drug_Type, MainContent,Refund,Review))
+View(data %>% filter(Vendor_Name=="hydroguru") %>% select(File_Name, Drug_Type, MainContent,Refund,Review))
 ```
 
 ### TorDrug (Selling Hash) \<00533, 00534\>
@@ -221,23 +250,25 @@ Before describing the products, MicroDroper always **introduces themselves to es
 
 They emphasise their experience (7 years) in the dark web market, the large number of positive reviews (over 16,000), and high satisfaction rate (100%) to build trust and authority. This is done to attract potential customers and make them believe that they are reliable and professional. However, it is clear that 100% satisfaction is not true as they only have a rating of 4.7, which is the lowest among the top 10 sellers. They highlight their collaboration with TGC Laboratory and emphasise "best quality," reflecting their attempt to stand out in a competitive market. Their optimism towards the Nemesis market and focuses on establishing relationships reflects their emphasis on market stability and willingness for long-term operations.
 
-They have provided detailed descriptions for each product, including composition, purity, and potency. At the same time, they have not concealed the potential harm that the drugs may cause to the human body. On the contrary, we can observe that the information contributes to harm reduction in a broader context. (For me, harm reduction here refers to minimising the harmful consequences of drug use and promoting health and dignity of people who use drug.)
+They provide detailed descriptions for each product, including composition, purity, and potency. At the same time, they do not conceal the potential harm that the drugs may cause to the human body. On the contrary, we can observe that the information contributes to harm reduction in a broader context. (For me, harm reduction refers to minimising the harmful consequences of drug use and promoting health and dignity of people who use drug.)
 
 > Please be careful with this product. IT'S STRONG AND VERY HIGH QUALITY!! (00496, Pos. 49)
 >
 > isotonitazene can be expected to pose a significant risk of producing life-threatening respiratory depression, as well as other typical opioid side effects such as sedation, itching, nausea and vomiting. (00019, Pos. 48-51)
 
-By providing honest and transparent information about the side effects and dangers of drugs, vendors can, to some extent, build trust. Potential users may be more inclined to work with vendors who are concerned about user safety. Vendors may feel that they have an ethical responsibility to provide accurate information to potential users to ensure that users are able to make informed decisions.
+By providing honest and transparent information about the side effects and dangers of drugs, vendors can, to some extent, build trust. Potential buyers may be more inclined to buy from vendors who are concerned about user safety. Vendors may feel that they have an ethical responsibility to provide accurate information to potential users to ensure that users are able to make informed decisions.
 
 Moreover, MicroDroper adds a customer review in the description.
 
 > Customer Review on the product: I tried it Intramuscular as the way I usually run when doing opioids. Felt completely nothing. I contacted TGC and he asked me to try it orally and to let him to know if any effect. and WOW! This works really nicely! I feel great! Euphoria is wonderful! Haven't felt like this in a while! (00017, Pos. 50-54)
 
-1.  **Establishing trust:** product reviews are crucial in building trust. Seeing positive comments can make potential customers believe that the product is widely accepted and effective, thereby influencing their purchasing decisions.
-2.  **Product validation and experience sharing:** The review validates the product's effectiveness when used in a specific way (orally in this case). This can guide other customers on how to use the product for the best results.
-3.  **Customer Engagement:** The comments indicate that the vendor is responsive and willing to help customers achieve optimal results. This can increase customer engagement and satisfaction.
+Adding this review in description may positively influence purchasing decisions.
 
-MicroDroper offers a 100% reshipment guarantee, but the maximum amount for reshipment is 500 grams. Buyers are encouraged to place multiple orders if their needs exceed this limit.
+1.  This review can build trust, because seeing positive comments can make potential customers believe that the product is widely accepted and effective.
+2.  Experience sharing (orally in this case) can guide other customers on how to use the product for the best results.
+3.  The review also indicates that the vendor is responsive and willing to help customers achieve optimal results. This can increase customer satisfaction.
+
+In terms of refund/reship policy, MicroDroper offers a 100% reshipment guarantee, but the maximum amount for reshipment is 500 grams. Buyers are encouraged to place multiple orders if their needs exceed this limit.
 
 ```{r}
 #| echo: FALSE
@@ -246,7 +277,7 @@ View(data %>% filter(Vendor_Name=="discover") %>% select(File_Name, Drug_Type, M
 
 ### discover (Alprazolam (Xanax) and Ketamine) \<00868, 01067, 01148\>
 
-Although there is no detailed introduction to the product, **safety** and **quick shipping** are the selling points of discover. They ask the buyer to "encrypt address for safety!" Not only does they draw the consumers' attention to dosage control, but they also provides methods to minimise harm. For instance,
+Although there is no detailed introduction to the product, **safety** and **quick shipping** are the selling points of "**discover"**. They ask the buyer to"encrypt address for safety!" Not only does they draw the consumers' attention to dosage control, but they also provides methods to minimise harm. For instance,
 
 > Be careful, it is strong. Please practice proper safety measures and start small! (01148, Pos. 51-52)
 
@@ -287,7 +318,7 @@ View(data %>% filter(Vendor_Name=="SocialPharma") %>% select(File_Name, Drug_Typ
 
 SocialPharma primarily sell two types of drugs, namely Benzodiazepine (Benzos) and Opioids. Only Oxycodone is shipped from the United Kingdom to worldwide destinations, and it is marked as "non-refundable/non-reshipable." The other products he sells, namely Zopiclone, Diazepam (Valium), Dihydrocodeine, Codeine, and Tramadol, are sold locally in the UK and have corresponding return and exchange policies. The vendor is a self-employed because he always refers to himself with "me" instead of "us". Surprisingly, his drug descriptions are often limited to just two lines, specifying the quantity and strength, without mentioning the quality of the products. Similarly, his return and exchange policies are quite brief. **He offers either a reshipment or a 50% refund based on the buyer's purchase time and his own perception of the buyer's trustworthiness.**
 
-Therefore, we can assume that the trust generated by the high ratings (all five stars) and a large number of reviews no longer requires him to go through the trouble of describing the product and building trust. In a way, the rating system and sales data have established trust that surpasses the need for product descriptions themselves. Another explanation could be attributed to the types of drugs they sell. Most of these drugs are sold in tablets, which gives limited room for detailed descriptions. This is in stark contrast to vendors selling Cannabis.
+Therefore, just like the top seller "TorDrug", we can assume that the trust generated by the high ratings (all five stars) and a large number of reviews no longer requires him to go through the trouble of describing the product and building trust. In a way, the rating system and sales data have established trust that surpasses the need for product descriptions themselves. Another explanation could be attributed to the types of drugs they sell. Most of these drugs are sold in tablets, which gives limited room for detailed descriptions. This is in stark contrast to vendors selling Cannabis, which will be presented later.
 
 ```{r}
 #| echo: FALSE
@@ -302,7 +333,7 @@ Drugstar is a professional retail company that operates across multiple platform
 
 > Europe 50% reship in case of no show or 25-50% refund Everything outside of Europe 25-50% reship in case of no show, or 25% refund. No reships if less then 5 total transactions. (00369, Pos. 98-100)
 
-从他们对每一个产品的描述来看，也是非常专业的。所有的产品都会按照knowledge guide, medical usage, and drug effects的顺序进行详细的介绍. 其中不乏体现减轻伤害的部分, 包括药品的混用，过量的危害，以及对用药的间隔时间的建议。
+From their descriptions of each product, it is evident that they have a high level of professionalism. **All products are thoroughly introduced in the order of a knowledge guide, medical usage, and drug effects.** This includes aspects of harm reduction, such as the risks of mixed usage of drugs, the dangers of overdose, and recommendations for safe intervals between drug use.
 
 > K-hole and therapeutic effect, hangover zero to none. (**doesn't go well with alcohol**) (00369, Pos. 30-31)
 >
@@ -310,7 +341,7 @@ Drugstar is a professional retail company that operates across multiple platform
 >
 > **It is usually recommended to wait for one to three months between each use to give the brain adequate time to restore serotonin levels and avoid toxicity.** Additionally, using excessively high doses and multiple redosing is highly discouraged as this is thought to significantly increase the toxicity of MDMA. **When using, drink enough water, stay hydrated.** (00371, Pos. 76-80)
 
-Unlike other merchants, they provide the information about the dosage, timing, and corresponding experience of each drug. For example:
+Unlike other vendors, they provide the information about the dosage, duration, and corresponding experience of each drug. For example:
 
 > Dosage\
 > ThresholdS+ Isomer 50 mg Light\
@@ -335,19 +366,17 @@ Another feature of Drugstar is their strong emphasis on customer reviews. They e
 View(data %>% filter(Vendor_Name=="queenofcannabis") %>% select(File_Name, Drug_Type, MainContent,Refund,Review))
 ```
 
-### Queenofcannabis (Cannabis » Hash/buds and Flowers) \<00530,01094,01194,01200,01205\> (no info about refund policy)
+### Queenofcannabis (Cannabis » Hash/buds and Flowers) \<00530,01094,01194,01200,01205\> (no info about refund policy) AND Maurelius(Cannabis » Shake, Hash, and Buds and Flowers) \<00028, 00137, 00497, 00498, 00544, 00550, 00553, 00554, 01168, 01170, 01206, 01227, 01240, 01249, 01250, 01253\>.
 
-### Maurelius(Cannabis » Shake, Hash, and Buds and Flowers) \<00028, 00137, 00497, 00498, 00544, 00550, 00553, 00554, 01168, 01170, 01206, 01227, 01240, 01249, 01250, 01253\>.
-
-For cannabis sellers, **Tetrahydrocannabinol (THC)** level is generally provided as an indicator for potency. Numerous paragraphs are dedicated to describing the aroma and taste of each Cannabis product. For example, when describing Afghan Kush (01253), the aroma and taste of this strain are depicted three times in details (01253, Pos. 35-37, Pos. 47-50, Pos. 85-100 ). Furthermore, the heritage/hybrid of Cannabis is also an important aspect that vendors want to emphasise to highlight the rarity and effects of their products. For example:
+Although Maurelius is not one of the top ten sellers, it sells wider ranges of cannabis, which can help us to know more about how cannabis is sold. For cannabis sellers, **Tetrahydrocannabinol (THC)** level is generally provided as an indicator for potency. Numerous paragraphs are dedicated to describing the aroma and taste of each Cannabis product. For example, when describing Afghan Kush (01253), the aroma and taste of this strain are depicted three times in details (01253, Pos. 35-37, Pos. 47-50, Pos. 85-100 ). Furthermore, the heritage/hybrid of Cannabis is also an important aspect that vendors want to emphasise to highlight the rarity and effects of their products. For example:
 
 > Alien Cookies is an evenly balanced hybrid (50% sativa/50% indica) strain created through a cross of the popular Alien Dawg X Girl Scout Cookies strains. This bud is incredibly **rare** to find, but totally worth it every time because of its flawless combination of its parents' effects. (01240, Pos. 27-30)
 
-The effects of different drugs on the body reveals several patterns:
+The effects of different cannabis products on the body reveal several patterns:
 
 1.  Social Behavior and Creativity: Individuals who seek these drugs for their psychotropic effects may seek to experience heightened sociability, amplified ethusiasm and to facilitate creative endeavors.
 2.  Euphoria and Blissful Sensations: These effects may contribute to a sense of happiness, cheerfulness, and laughter, thereby attracting individuals seeking positive emotional experiences.
-3.  Relaxation and Body Buzz: This combination of physical relaxation and elevated mood may be appealing to individuals seeking stress relief, tranquility, and a soothing experience.
+3.  Relaxation: This combination of physical relaxation and elevated mood may be appealing to individuals seeking stress relief, tranquility, and a soothing experience.
 4.  Medicinal Benefits: Individuals may turn to these drugs for potential therapeutic effects.
 5.  Sleep and Sedation: Some individuals may seek these drugs to aid with sleep-related issues or relaxation before bedtime.
 
@@ -357,7 +386,9 @@ The effects of different drugs on the body reveals several patterns:
 
 2.  The minimal negative side effects: for example, the vendor points out that Amnesia Haze is a sativa strain with minimal negative side effects compared to other sativa strains, as it doesn't induce dizziness, paranoia, anxiety, or nausea. The main drawback of Amnesia Haze is dry mouth (cotton mouth), which can be alleviated by staying hydrated before, during, and after cannabis consumption. (see 00497, Pos. 92-101)
 
-> Maurelius's Refund Policy: "If your order doesn't show up we can offer you 50% reship or refund of the original order. For years we used to reship 100% of the orders but unfortunately we live in a world where people take advantage of you and sometimes our clients lie when it comes to receiving orders. Please understand that we are here for money and we feel sorry that honnest men/women have to suffer the loss. Besides, you are buying weed, not vegetables. :)"
+**Maurelius's Refund Policy:**
+
+> "If your order doesn't show up we can offer you 50% reship or refund of the original order. For years we used to reship 100% of the orders but unfortunately we live in a world where people take advantage of you and sometimes our clients lie when it comes to receiving orders. Please understand that we are here for money and we feel sorry that honnest men/women have to suffer the loss. Besides, you are buying weed, not vegetables. :)"
 
 In the refund policy, it was mentioned that 100% of orders would be reshipped in the past, but later it was changed to only providing 50% reshipment or refund. This indicates the dynamics of the market. Customers who receive the items can still lie and claim that they have not received them in order to deceive for a refund or reshipment. Sellers are increasingly experiencing such negative experiences, which forces them to adjust their return and exchange policies to ensure overall profitability. This return and exchange policy reflects that the trust between sellers and buyers has not been resolved by the escrow method. The sale of drugs is not regulated or protected by law, and buyers and sellers seek a balance of trust through interaction and experience. This is further evidenced by the refund policy provided by SocialPharma, which is based on his perception of the buyer's trustworthiness.
 
@@ -368,13 +399,17 @@ View(data %>% filter(Vendor_Name=="ozconnection") %>% select(File_Name, Drug_Typ
 
 ### HighClass (00907, 01163)\<Psychedelics » LSD，Dissociatives » Ketamine \>
 
-HighClass的产品也是从荷兰发往全世界的，他们的对于产品并没有详细的描述。他们不旦在non-arrival的情况下不提供refund or reship，对给予他们差评也给予惩罚 ------ 一旦差评就等于丧失了refund or reship的权力。他们能在24小时内提供信息的回复。这一点可以看出他们对名声的注重。
+Similar to DrugStar, HighClass's products are also shipped from the Netherlands to the whole world, but they do not provide a detailed description of their products. Not only do they not offer refunds or reshipments in the case of non-arrival, but they also punish those who give them negative reviews - once a negative review is given, the right to a refund or reshipment is lost. They are able to respond to buyers within 24 hours. The following sentences indicate their emphasis on reputation.
 
 > I took years building my reputation, it's sacred to me. I can't afford negative reviews, especially on a new marketplace. I hope you understand. (00907, Pos. 62-65)
 
-从这句话中可以看出在新的市场平台上抢占先机的重要性。
+This announcement also reflects the importance of seizing the initiative in a new market platform. In a market full of instability, whoever has a large number of positive reviews first is more likely to form a virtuous cycle. In other words, buyers are unlikely to compare products from multiple sellers, but rather choose to directly purchase from sellers with more positive reviews.
 
 ### ozconnection （Stimulants » Methamphetamine (Meth) ）\<00741\>
+
+> I am one of the very few vendors who have been around since the original Silk Road in 2013. I have been a trusted vendor on every major market since then. I always have the lowest price compared to the competition for each product i offer. My quality is consistently high My stock levels are unlimited My feedback is flawless, No exit scamming or Rip Off accusations ever My shipping is always on time My stealth works Customer service is a priority and i will answer every message (00741, Pos. 21-31)
+
+ozconnection does not provide any content related to the product, but instead use self-introduction to enhance their credibility and sales. Firstly, they emphasise their history and extensive experience. They claime to have survived even after the closure of Silk Road, which was once the largest illegal goods trading platform in the world. At the same time, they assert that they have advantages over their competitors in terms of price, quality, inventory, feedback, integrity, shipping, anonymity, and customer service, without any drawbacks or risks. Finally, his refund policy is "case by case (00741, Pos. 33-34)".
 
 ### Route Visualisation on a map
 
@@ -516,7 +551,173 @@ This diagram presents observations regarding the sending and destination locatio
 
 In summary, the sending and destination locations vary for different drug types. Some drugs circulate primarily within specific regions, while others have a global circulation. However, the distribution of vendors appears to be concentrated within the UK and EU regions, with sporadic presence of US-based vendors. These insights can help us understand the circulation trends and market demand for different drug types.
 
-### 
+# Themes
+
+## Review 
+
+1.  In review section, it is often used as a place to ask vendors questions. And many reviews have been deleted (e.g. deleted at 2022-04-23 16:59:51 UTC by /u/Francis )
+
+    Questions:
+
+    1.  How to use the drug.
+
+        1.  Can I mix with drinks and use it (or) injection only?
+        2.  Can you please tell me how to use this product and if I need any other products to go along with this one? Does it need to be injected or applied directly to the skin? How much do I use per day? I purchased the product as a spray but it did not have a spray nozzle. It shipped with a screw on lid and the seal was broken. Thanks. (00314, Pos. 111-116)
+
+    2.  Dosage and experience
+
+        1.  How much to use?
+        2.  100 mg are good for a K-hole experience?
+        3.  How much would someone need to take of them to have an meth like effect? Or is this stuff totally different? How is it best consumed, just as a pill or crunched and snorted? Have no experience with it but want to try it (00887, Pos. 41-45) )
+        4.  How are the Teslas? Do they give you a good clean roll? (01025, Pos. 58-59)
+        5.  Have you tried squirting a bit of it up your nose with an oral syringe? (00314, Pos. 125)
+
+    3.  Purity: (Are these oxys 100% nothing else In them? )
+
+    4.  Freshness (is it still fresh? I made a mistake of ordering from a vendor and he sent very
+
+        dry,brittle weed. it was very lifeless to smoke y'a know? Thanks!)
+
+    5.  Potency: Is this the same as the other 30 mg oxy you sell? Is it strong or weak? I'm used to fentanyl so if I buy 1000 pills I want to make sure it will be strong (00926, Pos. 48-49)
+
+    6.  Shipment (speed, location, successful delivery rate, when to arrive.) (e.g. Do you also ship to Italy? what's the probability of successful delivery to india? whats the quickest u can get to the uk delivery please )
+
+    7.  Availability (e.g. Have you got also ketamin 1000mg/10ml? )
+
+    8.  Asking about the possibility to start with small transactions. (e.g., Is there any way I can maybe purchase like 50 so I can try your product out before committing to buying 500 or 1000. Is that possible? (01058, Pos. 97-99))
+
+    9.  Asking for samples (Can you send any samples of your H so I can see what I like more ? Pls and thank u for ur time (00727, Pos. 36-38)
+
+    10. Asking for discounts (since you are a new vendor, are you offering any discounts on the carts?? (00669, Pos. 49))
+
+    11. The trustworthiness of the market (e.g. Is this a trusted market ? i really want to get these pills )
+
+2.  <div>
+
+    The same reviews appear on posts with different vendor names and different drugs!
+
+    > **Firefly (00366, Pos. 8) selling Ketamine Solution**
+    >
+    > **straightfromnl (00903, Pos. 8) Selling LSD**
+
+    Again, I realise that these reviews are vendor-specific, so it's hard to know which product the reviewer is referring to if they don't make it clear.
+
+    </div>
+
+3.  Positive reviews
+
+    > Hello friend, first of all, I would like to thank you very much for trusting me and for sending a sample of each product as generously as I expected. Then I am grateful for your silence on your word. Not even five or ten stars is less than you. For one thing, I haven't tried anything of superior quality on your products so far. **Really very high quality and effective products.** When it comes to price, I think they deserve more, so you put a **very low price** **on this quality.** From now on I will definitely recommend you to my friends and relatives and from now on you are our Top seller. Congratulations again please keep you going like this. Best regards Orkan (00662, Pos. 155-166)
+    >
+    > If you want top quality bars at decent price hit up cannedgoods on here it's very fast shipping and always throw in a few extra D \_\_ \_\_ (00937, Pos. 85-89)
+    >
+    > You convinced me to just try this cause you have amazing reviews and I'd like the larger quantity size anyways. O (01058, Pos. 106-109)
+    >
+    > Me and a friend had a trippy NYE with this tabs. I got some different tabs than showed on the pictures (the trader confirmed, that they would have the same dose), and each of us had 1,5 tabs. It was super intense and we laughed for hours. Can totally recommend! (00903, Pos. 77-81)
+    >
+    > I would like to purchase straight from you last attempt I got scammed
+    >
+    > i get it.. quality was A+ D \_\_ \_\_ DeepDarkCasino2009 1 2 months ago very good.... shipping SUCKED.. quality of product A+ I (01025, Pos. 50-56)
+    >
+    > Not my first purchase I've made from y'all, I made several purchases on world from you.. I'm looking for a . 5 gram of top shelf goods!! Thank you very much, for your time!!!! (00610, Pos. 33-35)
+
+4.  Negative Reviews
+
+    <div>
+
+    > leathercleaner 1 3 days ago I tried the 3mmc of this trader before and have to say, that this was disappointing. Had to take the double for a nice effect, that only lasted 30 min. I don't know if i might have gotten a batch that was not that good. (00902, Pos. 62-65)
+    >
+    > there shit never shows up ive order from multiple sites from these guys cuz i trust vendors whove been around awhile. fuck these guys. hope they get there door kicked in. i believe n karma. i was low on money on the 3nd time they fucked me (00934, Pos. 78-81)
+    >
+    > Bull shit !!!!! The fella rights his own reviews ! Don't waste yomoney. Fast delivery - yes - quality - abysmal ! He probably got a shit few bars didn't want to take the hit so he forward it to us to online mugs! (01092, Pos. 100-102)
+    >
+    > i am lilou i had a bad experience yesterday so todai i try with the smallest item to see how is yout stuff and if i will not be phished lost 130e yesterday so i am not happy hope you can send it quickly i have problems with kleopatra it is not so easy as my former pgp (00929, Pos. 69-73)
+
+    </div>
+
+5.  Extra info (soldiers are potential buyers of oxy)
+
+    1.  <div>
+
+        > Hi you are buy far the best supplier and i need to make regular 80mg oxy orders for the injuries i suffered in Afghanistan, its been 12 days you asked me to wait for the tracking number would you mind sending it me straight away now so i can track if they will arrive today? as i a m in a lot of pain. I placed the order on the Royal Market and the order number was my Purchase - #sFuuOr was on 2022-12-16 13:35:23, I would be a loyal customer for life. (00923, Pos. 52-58)
+        >
+        > Hi , I'm an Army Veteran of 15 years serving in Bosnia , Iraq and Afghanistan and was hit by an ied in Afghanistan fracturing my spine and leg and I've run out of my fentanyl patches early and in a massive amount of pain. I was hoping you could send me 28 x 8Omg oxycodone at £400 via Royal Mail 24 hour next day guaranteed delivery with the Saturday option as well so I will get them tomorrow if you can post today I am happy to send an extra £20 . Royal Mail says £16.99. I can order and pay now. Many thanks PJ. P (00923, Pos. 91-98)
+
+        </div>
+
+## Customer Service
+
+1.  Almost all vendors prioritise customer service and aim to answer messages as quickly as possible. Emphasising communication and problem-solving rather than punishing helps maintain a good reputation.
+2.  Providing Q&A (00958)
+3.  A nice feedback will be rewarded with some bonus on next order (e.g., 00309)
+4.  Regular buyers can get discount (e.g., 00232)
+5.  Many asked the buyer to consult with a message before leaving a negative review. (e.g., 01092)
+6.  Wholesale buyers can get a free sample (e.g., 01145).
+
+## Refund/Reship
+
+```{r}
+#| echo: FALSE
+view(unique(data$Refund))
+```
+
+Most vendors will provide partial or full refunds depending on the circumstances, such as sending the wrong product, incorrect quantity, or being detained. However, there are some suppliers who do not offer any refunds at all.
+
+In the case of lost or detained orders, many suppliers will provide a one-time 100% reshipment service, especially for tracked orders within Europe. Orders outside of Europe usually only qualify for a 50% reshipment or a 25-50% refund.
+
+**Some vendors set conditions for returns and exchanges, such as:**
+
+-   Tracking must show that the order has not been delivered in order to qualify for reshipment/refund.
+
+-   There is a minimum order requirement (ranging from 500 to 1500 euros) in order to receive a 100% delivery guarantee and compensation within Europe.
+
+-   Only old customers (usually those who have placed 2 or more orders) are eligible for the reshipment/refund.
+
+-   Due to the risk of seizure, the reshipment/refund policy is sometimes not available for certain countries with strict regulations.
+
+**Strategies used to increase the likelihood of repeat purchases.**
+
+-   Providing a generous reshipment policy (e.g. 100% reship/refund) to establish customer's trust.
+
+-   Improving the customer experience by offering fast delivery and clear estimated delivery time windows and using tracked shipping options for higher-priced international orders.
+
+-   Limiting reshipment eligibility for loyal customers, which can encourage new buyers to complete multiple initial orders.
+
+-   Preventing disputes by explaining all policies upfront and managing expectations on restrictions and risks of certain delivery methods.
+
+**Customers may not be eligible for a refund in the following situations:**
+
+-   If they provide an incorrect or incomplete address, or if there are issues with their previous address.
+
+-   If tracking shows that the order has been delivered or returned to the sender.
+
+-   If they claim to have received less items than they ordered or the package was empty, which is considered a fraudulent attempt.
+
+-   If they are dissatisfied with the product quality or taste, as this is subjective and cannot be considered a valid reason for a refund.
+
+-   If they leave negative feedback or raise a dispute without first contacting the vendor
+
+-   If they order from a location outside of Europe, where there are higher transportation and customs risks
+
+-   If they order through a non-tracked shipping method, as the delivery status cannot be verified.
+
+## Interesting points without much data:
+
+**Cultural elements in 01193**
+
+> Please do not mistake my description of Poison as "Hard Sell"\
+> In fact, I actively discourage certain people from buying it.\
+> It is for the more refined, the more spiritual among us.\
+> It is for those who create music, who write poetry.\
+> It is for those who seek answers within.\
+> It's weed for living and loving life.\
+> It's food for the soul...\
+> I like to think of it as the Zen of weed.
+
+gratefullydead, the seller of Nbomes, attempted to defend the safey of using Nbomes through pointing out that The Nbome Death Scare is Fake News creatted by the Anti Drug effort (00088).
+
+## Analysis based on DrugType?
+
+Please find the attached file: DrugType_CR.xlsx
 
 ## Limitations
 
