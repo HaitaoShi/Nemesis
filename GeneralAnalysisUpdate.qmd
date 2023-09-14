@@ -553,7 +553,13 @@ In summary, the sending and destination locations vary for different drug types.
 
 # Themes
 
-## Review 
+## Review
+
+Again, I realise that these reviews are vendor-specific, so it's hard to know which product the reviewer is referring to if they don't make it clear. The same reviews appear on posts with different vendor names and different drugs.
+
+> Firefly (00366, Pos. 8) selling Ketamine Solution
+>
+> straightfromnl (00903, Pos. 8) Selling LSD
 
 1.  In review section, it is often used as a place to ask vendors questions. And many reviews have been deleted (e.g. deleted at 2022-04-23 16:59:51 UTC by /u/Francis )
 
@@ -566,45 +572,125 @@ In summary, the sending and destination locations vary for different drug types.
 
     2.  Dosage and experience
 
-        1.  How much to use?
-        2.  100 mg are good for a K-hole experience?
-        3.  How much would someone need to take of them to have an meth like effect? Or is this stuff totally different? How is it best consumed, just as a pill or crunched and snorted? Have no experience with it but want to try it (00887, Pos. 41-45) )
-        4.  How are the Teslas? Do they give you a good clean roll? (01025, Pos. 58-59)
-        5.  Have you tried squirting a bit of it up your nose with an oral syringe? (00314, Pos. 125)
+        1.  <div>
 
-    3.  Purity: (Are these oxys 100% nothing else In them? )
+            > How much to use? (100 mg are good for a K-hole experience?
 
-    4.  Freshness (is it still fresh? I made a mistake of ordering from a vendor and he sent very
+            </div>
 
-        dry,brittle weed. it was very lifeless to smoke y'a know? Thanks!)
+        2.  <div>
 
-    5.  Potency: Is this the same as the other 30 mg oxy you sell? Is it strong or weak? I'm used to fentanyl so if I buy 1000 pills I want to make sure it will be strong (00926, Pos. 48-49)
+            > How much would someone need to take of them to have an meth like effect? Or is this stuff totally different? How is it best consumed, just as a pill or crunched and snorted? Have no experience with it but want to try it (00887, Pos. 41-45) )
 
-    6.  Shipment (speed, location, successful delivery rate, when to arrive.) (e.g. Do you also ship to Italy? what's the probability of successful delivery to india? whats the quickest u can get to the uk delivery please )
+            </div>
 
-    7.  Availability (e.g. Have you got also ketamin 1000mg/10ml? )
+        3.  <div>
 
-    8.  Asking about the possibility to start with small transactions. (e.g., Is there any way I can maybe purchase like 50 so I can try your product out before committing to buying 500 or 1000. Is that possible? (01058, Pos. 97-99))
+            > How are the Teslas? Do they give you a good clean roll? (01025, Pos. 58-59)
 
-    9.  Asking for samples (Can you send any samples of your H so I can see what I like more ? Pls and thank u for ur time (00727, Pos. 36-38)
+            </div>
 
-    10. Asking for discounts (since you are a new vendor, are you offering any discounts on the carts?? (00669, Pos. 49))
+        4.  <div>
 
-    11. The trustworthiness of the market (e.g. Is this a trusted market ? i really want to get these pills )
+            > Have you tried squirting a bit of it up your nose with an oral syringe? (00314, Pos. 125)
 
-2.  <div>
+            </div>
 
-    The same reviews appear on posts with different vendor names and different drugs!
+    3.  **Purity/Freshness**
 
-    > **Firefly (00366, Pos. 8) selling Ketamine Solution**
-    >
-    > **straightfromnl (00903, Pos. 8) Selling LSD**
+        <div>
 
-    Again, I realise that these reviews are vendor-specific, so it's hard to know which product the reviewer is referring to if they don't make it clear.
+        > Are these oxys 100% nothing else In them? )
+        >
+        > is it still fresh? I made a mistake of ordering from a vendor and he sent very dry,brittle weed. it was very lifeless to smoke y'a know? Thanks!)
 
-    </div>
+        </div>
 
-3.  Positive reviews
+    4.  **Potency**:
+
+        <div>
+
+        > Is this the same as the other 30 mg oxy you sell? Is it strong or weak? I'm used to fentanyl so if I buy 1000 pills I want to make sure it will be strong (00926, Pos. 48-49)
+
+        </div>
+
+    5.  **Shipment (speed, location, successful delivery rate, when to arrive.)**
+
+        <div>
+
+        > e.g., Do you also ship to Italy? what's the probability of successful delivery to india? whats the quickest u can get to the uk delivery please )
+
+        </div>
+
+    6.  **Availability**
+
+        <div>
+
+        > (e.g. Have you got also ketamin 1000mg/10ml? )
+
+        </div>
+
+    7.  **The possibility to start with small transactions.**
+
+        <div>
+
+        > (e.g., Is there any way I can maybe purchase like 50 so I can try your product out before committing to buying 500 or 1000. Is that possible? (01058, Pos. 97-99))
+
+        </div>
+
+    8.  **Asking for samples**
+
+        <div>
+
+        > Can you send any samples of your H so I can see what I like more ? Pls and thank u for ur time (00727, Pos. 36-38)
+
+        </div>
+
+    9.  **Asking for discounts**
+
+        <div>
+
+        > since you are a new vendor, are you offering any discounts on the carts?? (00669, Pos. 49))
+
+        </div>
+
+    10. **The trustworthiness of the market**
+
+        <div>
+
+        > e.g. Is this a trusted market ? i really want to get these pills
+
+        </div>
+
+    11. **Concerning about health: (00920, Pos. 64-79)**
+
+        <div>
+
+        > duece267 1 5 months ago
+        >
+        > HOW MUCH FOR 10PC OF YOUR PERKS AND DO YOU KNOW IF ANY FENT IN YOUR PERKS\...AINT TRYNA DIE OVER A PILL LOL
+        >
+        > S1991 1 V OP 5 months ago
+        >
+        > check review u gonna be sure of not being death man after ordering from me cuz
+        >
+        > its fent free my bro
+        >
+        > \_\_ \_\_
+        >
+        > duece267 1 5 months ago
+        >
+        > how much for 10 perks i believe you said can make custom orders like that
+        >
+        > \_\_ \_
+        >
+        > ko954 1 5 months ago
+        >
+        > clean he aint lying
+
+        </div>
+
+2.  **Positive reviews**
 
     > Hello friend, first of all, I would like to thank you very much for trusting me and for sending a sample of each product as generously as I expected. Then I am grateful for your silence on your word. Not even five or ten stars is less than you. For one thing, I haven't tried anything of superior quality on your products so far. **Really very high quality and effective products.** When it comes to price, I think they deserve more, so you put a **very low price** **on this quality.** From now on I will definitely recommend you to my friends and relatives and from now on you are our Top seller. Congratulations again please keep you going like this. Best regards Orkan (00662, Pos. 155-166)
     >
@@ -620,7 +706,7 @@ In summary, the sending and destination locations vary for different drug types.
     >
     > Not my first purchase I've made from y'all, I made several purchases on world from you.. I'm looking for a . 5 gram of top shelf goods!! Thank you very much, for your time!!!! (00610, Pos. 33-35)
 
-4.  Negative Reviews
+3.  **Negative Reviews**
 
     <div>
 
@@ -634,7 +720,7 @@ In summary, the sending and destination locations vary for different drug types.
 
     </div>
 
-5.  Extra info (soldiers are potential buyers of oxy)
+4.  **Extra info (soldiers are potential buyers of oxy)**
 
     1.  <div>
 
