@@ -403,7 +403,9 @@ Similar to DrugStar, HighClass's products are also shipped from the Netherlands 
 
 > I took years building my reputation, it's sacred to me. I can't afford negative reviews, especially on a new marketplace. I hope you understand. (00907, Pos. 62-65)
 
-This announcement also reflects the importance of seizing the initiative in a new market platform. In a market full of instability, whoever has a large number of positive reviews first is more likely to form a virtuous cycle. In other words, buyers are unlikely to compare products from multiple sellers, but rather choose to directly purchase from sellers with more positive reviews.
+This announcement also reflects the importance of seizing the initiative in a new market platform. In a market full of instability, whoever has a large number of positive reviews first is more likely to form a virtuous cycle. In other words, buyers are unlikely to compare products from multiple sellers, but rather choose to directly purchase from sellers with more positive reviews. For example,
+
+> You convinced me to just try this cause you have amazing reviews and I'd like the larger quantity size anyways. O (01058, Pos. 106-109).
 
 ### ozconnection （Stimulants » Methamphetamine (Meth) ）\<00741\>
 
@@ -555,180 +557,181 @@ In summary, the sending and destination locations vary for different drug types.
 
 ## Review
 
-Again, I realise that these reviews are vendor-specific, so it's hard to know which product the reviewer is referring to if they don't make it clear. The same reviews appear on posts with different vendor names and different drugs.
+Again, I realise that these reviews are vendor-specific, so it is hard to know which product the reviewer is referring to if they don't make it clear. The same reviews appear on posts with different vendor names and different drugs.
 
 > Firefly (00366, Pos. 8) selling Ketamine Solution
 >
 > straightfromnl (00903, Pos. 8) Selling LSD
 
-1.  In review section, it is often used as a place to ask vendors questions. And many reviews have been deleted (e.g. deleted at 2022-04-23 16:59:51 UTC by /u/Francis )
+In the review section, it is common to ask vendors questions. However, several reviews have been removed (e.g. "deleted at 2022-04-23 16:59:51 UTC by /u/Francis" )
 
-    Questions:
+### **Questions commonly asked:**
 
-    1.  How to use the drug.
+1.  **How to use the drug.**
 
-        1.  Can I mix with drinks and use it (or) injection only?
-        2.  Can you please tell me how to use this product and if I need any other products to go along with this one? Does it need to be injected or applied directly to the skin? How much do I use per day? I purchased the product as a spray but it did not have a spray nozzle. It shipped with a screw on lid and the seal was broken. Thanks. (00314, Pos. 111-116)
+    1.  "Can I mix with drinks and use it (or) injection only?"
 
-    2.  Dosage and experience
+    2.  <div>
 
-        1.  <div>
-
-            > How much to use? (100 mg are good for a K-hole experience?
-
-            </div>
-
-        2.  <div>
-
-            > How much would someone need to take of them to have an meth like effect? Or is this stuff totally different? How is it best consumed, just as a pill or crunched and snorted? Have no experience with it but want to try it (00887, Pos. 41-45) )
-
-            </div>
-
-        3.  <div>
-
-            > How are the Teslas? Do they give you a good clean roll? (01025, Pos. 58-59)
-
-            </div>
-
-        4.  <div>
-
-            > Have you tried squirting a bit of it up your nose with an oral syringe? (00314, Pos. 125)
-
-            </div>
-
-    3.  **Purity/Freshness**
-
-        <div>
-
-        > Are these oxys 100% nothing else In them? )
-        >
-        > is it still fresh? I made a mistake of ordering from a vendor and he sent very dry,brittle weed. it was very lifeless to smoke y'a know? Thanks!)
+        > Can you please tell me how to use this product and if I need any other products to go along with this one? Does it need to be injected or applied directly to the skin? How much do I use per day? I purchased the product as a spray but it did not have a spray nozzle. It shipped with a screw on lid and the seal was broken. Thanks. (00314, Pos. 111-116)
 
         </div>
 
-    4.  **Potency**:
-
-        <div>
-
-        > Is this the same as the other 30 mg oxy you sell? Is it strong or weak? I'm used to fentanyl so if I buy 1000 pills I want to make sure it will be strong (00926, Pos. 48-49)
-
-        </div>
-
-    5.  **Shipment (speed, location, successful delivery rate, when to arrive.)**
-
-        <div>
-
-        > e.g., Do you also ship to Italy? what's the probability of successful delivery to india? whats the quickest u can get to the uk delivery please )
-
-        </div>
-
-    6.  **Availability**
-
-        <div>
-
-        > (e.g. Have you got also ketamin 1000mg/10ml? )
-
-        </div>
-
-    7.  **The possibility to start with small transactions.**
-
-        <div>
-
-        > (e.g., Is there any way I can maybe purchase like 50 so I can try your product out before committing to buying 500 or 1000. Is that possible? (01058, Pos. 97-99))
-
-        </div>
-
-    8.  **Asking for samples**
-
-        <div>
-
-        > Can you send any samples of your H so I can see what I like more ? Pls and thank u for ur time (00727, Pos. 36-38)
-
-        </div>
-
-    9.  **Asking for discounts**
-
-        <div>
-
-        > since you are a new vendor, are you offering any discounts on the carts?? (00669, Pos. 49))
-
-        </div>
-
-    10. **The trustworthiness of the market**
-
-        <div>
-
-        > e.g. Is this a trusted market ? i really want to get these pills
-
-        </div>
-
-    11. **Concerning about health: (00920, Pos. 64-79)**
-
-        <div>
-
-        > duece267 1 5 months ago
-        >
-        > HOW MUCH FOR 10PC OF YOUR PERKS AND DO YOU KNOW IF ANY FENT IN YOUR PERKS\...AINT TRYNA DIE OVER A PILL LOL
-        >
-        > S1991 1 V OP 5 months ago
-        >
-        > check review u gonna be sure of not being death man after ordering from me cuz
-        >
-        > its fent free my bro
-        >
-        > \_\_ \_\_
-        >
-        > duece267 1 5 months ago
-        >
-        > how much for 10 perks i believe you said can make custom orders like that
-        >
-        > \_\_ \_
-        >
-        > ko954 1 5 months ago
-        >
-        > clean he aint lying
-
-        </div>
-
-2.  **Positive reviews**
-
-    > Hello friend, first of all, I would like to thank you very much for trusting me and for sending a sample of each product as generously as I expected. Then I am grateful for your silence on your word. Not even five or ten stars is less than you. For one thing, I haven't tried anything of superior quality on your products so far. **Really very high quality and effective products.** When it comes to price, I think they deserve more, so you put a **very low price** **on this quality.** From now on I will definitely recommend you to my friends and relatives and from now on you are our Top seller. Congratulations again please keep you going like this. Best regards Orkan (00662, Pos. 155-166)
-    >
-    > If you want top quality bars at decent price hit up cannedgoods on here it's very fast shipping and always throw in a few extra D \_\_ \_\_ (00937, Pos. 85-89)
-    >
-    > You convinced me to just try this cause you have amazing reviews and I'd like the larger quantity size anyways. O (01058, Pos. 106-109)
-    >
-    > Me and a friend had a trippy NYE with this tabs. I got some different tabs than showed on the pictures (the trader confirmed, that they would have the same dose), and each of us had 1,5 tabs. It was super intense and we laughed for hours. Can totally recommend! (00903, Pos. 77-81)
-    >
-    > I would like to purchase straight from you last attempt I got scammed
-    >
-    > i get it.. quality was A+ D \_\_ \_\_ DeepDarkCasino2009 1 2 months ago very good.... shipping SUCKED.. quality of product A+ I (01025, Pos. 50-56)
-    >
-    > Not my first purchase I've made from y'all, I made several purchases on world from you.. I'm looking for a . 5 gram of top shelf goods!! Thank you very much, for your time!!!! (00610, Pos. 33-35)
-
-3.  **Negative Reviews**
-
-    <div>
-
-    > leathercleaner 1 3 days ago I tried the 3mmc of this trader before and have to say, that this was disappointing. Had to take the double for a nice effect, that only lasted 30 min. I don't know if i might have gotten a batch that was not that good. (00902, Pos. 62-65)
-    >
-    > there shit never shows up ive order from multiple sites from these guys cuz i trust vendors whove been around awhile. fuck these guys. hope they get there door kicked in. i believe n karma. i was low on money on the 3nd time they fucked me (00934, Pos. 78-81)
-    >
-    > Bull shit !!!!! The fella rights his own reviews ! Don't waste yomoney. Fast delivery - yes - quality - abysmal ! He probably got a shit few bars didn't want to take the hit so he forward it to us to online mugs! (01092, Pos. 100-102)
-    >
-    > i am lilou i had a bad experience yesterday so todai i try with the smallest item to see how is yout stuff and if i will not be phished lost 130e yesterday so i am not happy hope you can send it quickly i have problems with kleopatra it is not so easy as my former pgp (00929, Pos. 69-73)
-
-    </div>
-
-4.  **Extra info (soldiers are potential buyers of oxy)**
+2.  **Dosage and experience**
 
     1.  <div>
 
-        > Hi you are buy far the best supplier and i need to make regular 80mg oxy orders for the injuries i suffered in Afghanistan, its been 12 days you asked me to wait for the tracking number would you mind sending it me straight away now so i can track if they will arrive today? as i a m in a lot of pain. I placed the order on the Royal Market and the order number was my Purchase - #sFuuOr was on 2022-12-16 13:35:23, I would be a loyal customer for life. (00923, Pos. 52-58)
-        >
-        > Hi , I'm an Army Veteran of 15 years serving in Bosnia , Iraq and Afghanistan and was hit by an ied in Afghanistan fracturing my spine and leg and I've run out of my fentanyl patches early and in a massive amount of pain. I was hoping you could send me 28 x 8Omg oxycodone at £400 via Royal Mail 24 hour next day guaranteed delivery with the Saturday option as well so I will get them tomorrow if you can post today I am happy to send an extra £20 . Royal Mail says £16.99. I can order and pay now. Many thanks PJ. P (00923, Pos. 91-98)
+        > How much to use? (100 mg are good for a K-hole experience?
 
         </div>
+
+    2.  <div>
+
+        > How much would someone need to take of them to have an meth like effect? Or is this stuff totally different? How is it best consumed, just as a pill or crunched and snorted? Have no experience with it but want to try it (00887, Pos. 41-45) )
+
+        </div>
+
+    3.  <div>
+
+        > How are the Teslas? Do they give you a good clean roll? (01025, Pos. 58-59)
+
+        </div>
+
+    4.  <div>
+
+        > Have you tried squirting a bit of it up your nose with an oral syringe? (00314, Pos. 125)
+
+        </div>
+
+3.  **Purity/Freshness**
+
+    <div>
+
+    > Are these oxys 100% nothing else In them? )
+    >
+    > is it still fresh? I made a mistake of ordering from a vendor and he sent very dry,brittle weed. it was very lifeless to smoke y'a know? Thanks!)
+
+    </div>
+
+4.  **Potency**:
+
+    <div>
+
+    > Is this the same as the other 30 mg oxy you sell? Is it strong or weak? I'm used to fentanyl so if I buy 1000 pills I want to make sure it will be strong (00926, Pos. 48-49)
+
+    </div>
+
+5.  **Shipment (Delivery speed, location, successful delivery rate, when it arrives.)**
+
+    <div>
+
+    > e.g., Do you also ship to Italy? what's the probability of successful delivery to india? whats the quickest u can get to the uk delivery please )
+
+    </div>
+
+6.  **Availability**
+
+    <div>
+
+    > e.g. Have you got also ketamin 1000mg/10ml?
+
+    </div>
+
+7.  **Whether it is acceptable to start with small transactions**
+
+    <div>
+
+    > (e.g., Is there any way I can maybe purchase like 50 so I can try your product out before committing to buying 500 or 1000. Is that possible? (01058, Pos. 97-99))
+
+    </div>
+
+8.  **Asking for samples**
+
+    <div>
+
+    > Can you send any samples of your H so I can see what I like more ? Pls and thank u for ur time (00727, Pos. 36-38)
+
+    </div>
+
+9.  **Asking for discounts**
+
+    <div>
+
+    > since you are a new vendor, are you offering any discounts on the carts?? (00669, Pos. 49))
+
+    </div>
+
+10. **The trustworthiness of the market**
+
+    <div>
+
+    > e.g. Is this a trusted market ? i really want to get these pills
+
+    </div>
+
+11. **Concerning about their own health: (00920, Pos. 64-79)**
+
+    <div>
+
+    > duece267 1 5 months ago
+    >
+    > HOW MUCH FOR 10PC OF YOUR PERKS AND DO YOU KNOW IF ANY FENT IN YOUR PERKS\...AINT TRYNA DIE OVER A PILL LOL
+    >
+    > S1991 1 V OP 5 months ago
+    >
+    > check review u gonna be sure of not being death man after ordering from me cuz
+    >
+    > its fent free my bro
+    >
+    > \_\_ \_\_
+    >
+    > duece267 1 5 months ago
+    >
+    > how much for 10 perks i believe you said can make custom orders like that
+    >
+    > \_\_ \_
+    >
+    > ko954 1 5 months ago
+    >
+    > clean he aint lying
+
+    </div>
+
+### **Positive reviews**
+
+The positive reviews are mostly about the quality and effectiveness of the products. The customers appreciate the generosity, trustworthiness, and reputation of the online vendor and fast shipping. The customers think that the vendor offers a decent price for top quality drug.
+
+> Hello friend, first of all, I would like to thank you very much for trusting me and for sending a sample of each product as generously as I expected. Then I am grateful for your silence on your word. Not even five or ten stars is less than you. For one thing, I haven't tried anything of superior quality on your products so far. **Really very high quality and effective products.** When it comes to price, I think they deserve more, so you put a **very low price** **on this quality.** From now on I will definitely recommend you to my friends and relatives and from now on you are our Top seller. Congratulations again please keep you going like this. Best regards Orkan (00662, Pos. 155-166)
+>
+> If you want **top quality** bars at decent price hit up cannedgoods on here it's very **fast shipping and always throw in a few extra** D \_\_ \_\_ (00937, Pos. 85-89)
+>
+> i get it.. quality was A+ D \_\_ \_\_ DeepDarkCasino2009 1 2 months ago very good.... shipping SUCKED.. quality of product A+ I (01025, Pos. 50-56)
+>
+> Not my first purchase I've made from y'all, I made several purchases on world from you.. I'm looking for a . 5 gram of top shelf goods!! Thank you very much, for your time!!!! (00610, Pos. 33-35)
+
+A customer shared his good experience, which can be used as a reference for other drug users in terms of dosage and effects.
+
+> Me and a friend had a trippy NYE with this tabs. I got some different tabs than showed on the pictures (the trader confirmed, that they would have the same dose), and each of us had 1,5 tabs. It was super intense and we laughed for hours. Can totally recommend! (00903, Pos. 77-81)
+
+### **Negative Reviews**
+
+<div>
+
+> leathercleaner 1 3 days ago I tried the 3mmc of this trader before and have to say, that this was disappointing. Had to take the double for a nice effect, that only lasted 30 min. I don't know if i might have gotten a batch that was not that good. (00902, Pos. 62-65)
+>
+> there shit never shows up ive order from multiple sites from these guys cuz i trust vendors whove been around awhile. fuck these guys. hope they get there door kicked in. i believe n karma. i was low on money on the 3nd time they fucked me (00934, Pos. 78-81)
+>
+> Bull shit !!!!! The fella rights his own reviews ! Don't waste yomoney. Fast delivery - yes - quality - abysmal ! He probably got a shit few bars didn't want to take the hit so he forward it to us to online mugs! (01092, Pos. 100-102)
+>
+> i am lilou i had a bad experience yesterday so todai i try with the smallest item to see how is yout stuff and if i will not be phished lost 130e yesterday so i am not happy hope you can send it quickly i have problems with kleopatra it is not so easy as my former pgp (00929, Pos. 69-73)
+
+</div>
+
+### **Extra info (soldiers are potential buyers of oxy)**
+
+> Hi you are buy far the best supplier and i need to make regular 80mg oxy orders for the injuries i suffered in Afghanistan, its been 12 days you asked me to wait for the tracking number would you mind sending it me straight away now so i can track if they will arrive today? as i a m in a lot of pain. I placed the order on the Royal Market and the order number was my Purchase - #sFuuOr was on 2022-12-16 13:35:23, I would be a loyal customer for life. (00923, Pos. 52-58)
+>
+> Hi , I'm an Army Veteran of 15 years serving in Bosnia , Iraq and Afghanistan and was hit by an ied in Afghanistan fracturing my spine and leg and I've run out of my fentanyl patches early and in a massive amount of pain. I was hoping you could send me 28 x 8Omg oxycodone at £400 via Royal Mail 24 hour next day guaranteed delivery with the Saturday option as well so I will get them tomorrow if you can post today I am happy to send an extra £20 . Royal Mail says £16.99. I can order and pay now. Many thanks PJ. P (00923, Pos. 91-98)
 
 ## Customer Service
 
