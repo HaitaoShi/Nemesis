@@ -1,0 +1,35 @@
+"Source","Target","Weight"
+"Benzodiazepine (Benzos)","Cannabis",5
+"Benzodiazepine (Benzos)","Dissociatives",5
+"Benzodiazepine (Benzos)","Ecstasy",7
+"Benzodiazepine (Benzos)","Opioids",11
+"Benzodiazepine (Benzos)","Other",3
+"Benzodiazepine (Benzos)","Prescription Drugs",2
+"Benzodiazepine (Benzos)","Psychedelics",5
+"Benzodiazepine (Benzos)","Steroids",1
+"Benzodiazepine (Benzos)","Stimulants",12
+"Cannabis","Dissociatives",2
+"Cannabis","Ecstasy",5
+"Cannabis","Opioids",4
+"Cannabis","Other",1
+"Cannabis","Psychedelics",2
+"Cannabis","Stimulants",11
+"Dissociatives","Ecstasy",9
+"Dissociatives","Opioids",6
+"Dissociatives","Other",2
+"Dissociatives","Psychedelics",9
+"Dissociatives","Stimulants",8
+"Ecstasy","Opioids",7
+"Ecstasy","Other",1
+"Ecstasy","Psychedelics",9
+"Ecstasy","Stimulants",12
+"Opioids","Other",2
+"Opioids","Prescription Drugs",1
+"Opioids","Psychedelics",5
+"Opioids","Steroids",1
+"Opioids","Stimulants",14
+"Other","Prescription Drugs",1
+"Other","Psychedelics",2
+"Other","Stimulants",2
+"Prescription Drugs","Stimulants",1
+"Psychedelics","Stimulants",7
