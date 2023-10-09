@@ -1,3 +1,5 @@
+#This scrpit is used to prepare for the data for the further analysis through Gephi. 
+
 library(tidyverse)
 data  <-  read_csv("/Users/shihaitao/Documents/DarknetProject/Nemesis/complete.csv")
 colnames(data)

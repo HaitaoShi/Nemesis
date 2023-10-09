@@ -1,0 +1,77 @@
+---
+title: "TF_IDF_Nemesis_Market"
+format: 
+  html:
+    code-fold: true
+    code-tools: true
+---
+
+## The concept of [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) is based on [Zipf's Law](https://en.wikipedia.org/wiki/Zipf%27s_law)
+
+## Load Packages and data
+
+```{r}
+#| label: load-packages_data
+#| warning: false
+#| code-fold: true
+
+library(tidyverse)
+library(forcats)
+library(stringr)
+library(tidytext)
+library(igraph)
+library(ggraph)
+library(ggrepel)
+
+data  <-  read_csv("/Users/shihaitao/Documents/DarknetProject/Nemesis/complete.csv")
+```
+
+## Several steps to get data ready for analysis
+
+```{r}
+#| label: data_preparation
+#| code-fold: false
+word_only <- data %>% 
+  select("Drug_Type_L", "MainContent") %>% # <1>
+  group_by(Drug_Type_L) %>% # <2>
+  summarise(Type_Content=paste(MainContent,collapse = "")) %>% # <2> 
+  slice(c(-6, -11)) %>% # <3>
+  unnest_tokens(word, Type_Content) %>% # <4>  
+  mutate(word = str_remove_all(word, "\\d+")) %>% # <4> 
+  mutate(word = str_remove_all(word, "mg|g|ml|l")) %>%  # <4> 
+  filter(word != "") %>% # <4> 
+  count(Drug_Type_L, word, sort = TRUE) %>% # <5> 
+  ungroup()
+```
+
+1.  Select the columns "Drug_Type_L" and "MainContent" from the data frame "data"
+2.  Group the data by "Drug_Type_L" and concatenate the "MainContent" strings for each group into a single string
+3.  Remove the 6th and 11th rows from the resulting data frame (NA and Other)
+4.  Split the concatenated strings into individual words and remove all digits, units (mg, g, ml, l) and empty value
+5.  Count the frequency of each word for each group, and sort the results in descending order
+
+## Calculate the TF-IDF score for each word in each group
+
+```{r}
+#| code-fold: false
+word_tf_idf <- word_only %>% 
+  bind_tf_idf(word, Drug_Type_L, n)
+```
+
+## Sort the results by TF-IDF score in descending order and select the top 15 words for each group
+
+```{r}
+#| code-fold: false
+word_top15 <- word_tf_idf %>% 
+  group_by(Drug_Type_L) %>% 
+  arrange(desc(tf_idf)) %>% 
+  top_n(15,tf_idf) %>% 
+  ungroup()
+```
+
+## Preview the top 15 words for each group
+
+```{r}
+#| code-fold: false
+word_top15
+```
