@@ -50,28 +50,40 @@ word_only <- data %>%
 4.  Split the concatenated strings into individual words and remove all digits, units (mg, g, ml, l) and empty value
 5.  Count the frequency of each word for each group, and sort the results in descending order
 
-## Calculate the TF-IDF score for each word in each group
+## 
 
 ```{r}
 #| code-fold: false
-word_tf_idf <- word_only %>% 
-  bind_tf_idf(word, Drug_Type_L, n)
+custom_stopwords <- tibble(word=c("mg"), lexicon="custom")
+StopWords <- bind_rows(stop_words, custom_stopwords)
+
+Top10 <- word_only[-11,] %>% unnest_tokens(word,Type_Content) %>% anti_join(StopWords) %>% group_by(Drug_Type_L) %>% count(word,sort = TRUE) %>% mutate(fre=n/sum(n)) %>% mutate(word=reorder(word,n)) %>% slice_head(n=10) %>% ungroup() %>% select(-fre)  
 ```
 
-## Sort the results by TF-IDF score in descending order and select the top 15 words for each group
+ 
 
+
+## Visualisation
 ```{r}
-#| code-fold: false
-word_top15 <- word_tf_idf %>% 
-  group_by(Drug_Type_L) %>% 
-  arrange(desc(tf_idf)) %>% 
-  top_n(15,tf_idf) %>% 
-  ungroup()
+
+list_network <- graph.data.frame(Top10, directed=FALSE)
+list_adjacency_network <- get.adjacency(list_network, attr="n", sparse=FALSE)
+
+layout <- layout_with_fr(list_network)  # 计算节点的坐标
+
+plot(list_network, edge.width = list_network$n, vertex.size = 0, vertex.cex = 0.8, layout = layout)  # 使用计
+
+ 
 ```
 
-## Preview the top 15 words for each group
 
+## 交互式
 ```{r}
-#| code-fold: false
-word_top15
+
+tkplot(list_network, edge.width = E(list_network)$n/10, vertex.size = 0, vertex.cex = 0.8)  # 使用边的属性n来设置边的粗细
+
+# 在交互式绘图窗口中手动调整节点的位置，避免文字交叠
+
+
 ```
+
